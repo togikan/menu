@@ -15,6 +15,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String[]", "FEATURE_MODULE_NAMES", "{" + "\"feature_product\"" + "}"
     }
 
     buildTypes {
@@ -41,6 +43,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.play:core:1.10.0'
+    implementation 'org.kodein.di:kodein-di-generic-jvm:6.5.5'
+    implementation 'org.kodein.di:kodein-di-framework-android-x:6.5.5'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.31"
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
