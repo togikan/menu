@@ -17,7 +17,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         //TODO: Use kotlin DSL for gradle to get module names dynamically
-        buildConfigField "String[]", "FEATURE_MODULE_NAMES", "{" + "\"product\"" + "}"
+        buildConfigField "String[]", "FEATURE_MODULE_NAMES", "{" + "\"item\"" + "}"
     }
 
     buildFeatures {
@@ -41,7 +41,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    dynamicFeatures = [':feature_product']
+    dynamicFeatures = [':feature_item']
 }
 
 dependencies {
