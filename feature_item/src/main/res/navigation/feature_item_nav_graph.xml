@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/MenuItemListFragment"
-        android:name="com.thk.feature_item.presentation.list.MenuItemListFragment"
+        android:name="com.thk.feature_item.presentation.list.ItemListFragment"
         android:label="MenuItemListFragment"
         app:moduleName="feature_item">
     </fragment>

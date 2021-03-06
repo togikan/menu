@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.thk.feature_item.R
 
-import com.thk.feature_item.presentation.list.dummy.DummyContent.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].
  * TODO: Replace the implementation with code for your data type.
  */
-class MenuItemRecyclerViewAdapter(
-    private val values: List<DummyItem>
-) : RecyclerView.Adapter<MenuItemRecyclerViewAdapter.ViewHolder>() {
+class ItemRecyclerViewAdapter(
+    private val values: List<String>
+) : RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -25,8 +24,6 @@ class MenuItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
     }
 
     override fun getItemCount(): Int = values.size

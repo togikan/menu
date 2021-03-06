@@ -13,6 +13,7 @@ class ActivityViewBindingDelegate<T : ViewBinding>(private val bindingClass: Cla
 
     private var binding: T? = null
 
+    @Suppress("UNCHECKED_CAST")
     override fun getValue(thisRef: Activity, property: KProperty<*>): T {
         binding?.let { return it }
         val inflateMethod = bindingClass.getMethod("inflate", LayoutInflater::class.java)
