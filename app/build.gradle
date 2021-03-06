@@ -16,7 +16,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String[]", "FEATURE_MODULE_NAMES", "{" + "\"feature_product\"" + "}"
+        //TODO: Use kotlin DSL for gradle to get module names dynamically
+        buildConfigField "String[]", "FEATURE_MODULE_NAMES", "{" + "\"product\"" + "}"
     }
 
     buildTypes {
