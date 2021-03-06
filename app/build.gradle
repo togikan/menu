@@ -20,6 +20,10 @@ android {
         buildConfigField "String[]", "FEATURE_MODULE_NAMES", "{" + "\"product\"" + "}"
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
