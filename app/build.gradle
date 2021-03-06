@@ -27,7 +27,6 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         release {
@@ -53,8 +52,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.play:core:1.10.0'
-    implementation 'org.kodein.di:kodein-di-generic-jvm:6.5.5'
-    implementation 'org.kodein.di:kodein-di-framework-android-x:6.5.5'
+    api 'org.kodein.di:kodein-di-generic-jvm:6.5.5'
+    api 'org.kodein.di:kodein-di-framework-android-x:6.5.5'
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.31"
 
     def nav_version = "2.3.3"
