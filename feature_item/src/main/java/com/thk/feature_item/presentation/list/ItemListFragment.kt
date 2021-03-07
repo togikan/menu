@@ -4,15 +4,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.thk.feature_item.R
+import com.thk.feature_item.databinding.FragmentMenuItemListBinding
+import com.thk.menu.base.delegate.viewBinding
+import com.thk.menu.base.presentation.extension.observe
 import com.thk.menu.base.presentation.fragment.InjectionFragment
+import org.kodein.di.generic.instance
 
 /**
  * A fragment representing a list of Items.
  */
 class ItemListFragment : InjectionFragment(R.layout.fragment_menu_item_list) {
 
+    private val binding: FragmentMenuItemListBinding by viewBinding()
+
+    private val viewModel: ProductListViewModel by instance()
+
+    private val itemAdapter: ItemRecyclerViewAdapter by instance()
+
     private var columnCount = 1
+
+    private val stateObserver = Observer<ProductListViewModel.ViewState> {
+//        itemAdapter.albums = it.albums
+//
+//        binding.progressBar.visible = it.isLoading
+//        binding.errorAnimation.visible = it.isError
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +40,12 @@ class ItemListFragment : InjectionFragment(R.layout.fragment_menu_item_list) {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        return view
+        observe(viewModel.stateLiveData, stateObserver)
+
+        viewModel.loadData()
     }
 
     companion object {

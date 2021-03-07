@@ -12,9 +12,7 @@ import com.thk.feature_item.R
  * [RecyclerView.Adapter] that can display a [DummyItem].
  * TODO: Replace the implementation with code for your data type.
  */
-class ItemRecyclerViewAdapter(
-    private val values: List<String>
-) : RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>() {
+class ItemRecyclerViewAdapter() : RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -23,10 +21,10 @@ class ItemRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
+
     }
 
-    override fun getItemCount(): Int = values.size
+    override fun getItemCount(): Int = Int.MIN_VALUE
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val idView: TextView = view.findViewById(R.id.item_number)

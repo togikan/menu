@@ -4,7 +4,7 @@ import com.thk.menu.BuildConfig
 
 object FeatureManager {
 
-    private const val featurePackagePrefix = "com.thk.menu.feature"
+    private const val featurePackagePrefix = "com.thk.menu.feature_"
 
     val kodeinModules = BuildConfig.FEATURE_MODULE_NAMES
         .map { "$featurePackagePrefix.$it.FeatureKodeinModule" }
