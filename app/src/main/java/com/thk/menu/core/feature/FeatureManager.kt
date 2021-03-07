@@ -7,7 +7,7 @@ object FeatureManager {
     private const val featurePackagePrefix = "com.thk.menu.feature_"
 
     val kodeinModules = BuildConfig.FEATURE_MODULE_NAMES
-        .map { "$featurePackagePrefix.$it.FeatureKodeinModule" }
+        .map { "com.thk.feature_product.FeatureKodeinModule" }
         .map {
             try {
                 Class.forName(it).kotlin.objectInstance as KodeinModuleProvider
