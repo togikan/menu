@@ -4,8 +4,7 @@ import com.thk.menu.BuildConfig
 
 object FeatureManager {
 
-    private const val featurePackagePrefix = "com.thk.menu.feature_"
-
+    //TODO: Use kotlin DSL for gradle to get module names dynamically
     val kodeinModules = BuildConfig.FEATURE_MODULE_NAMES
         .map { "com.thk.feature_product.FeatureKodeinModule" }
         .map {
