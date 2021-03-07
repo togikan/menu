@@ -3,9 +3,9 @@ package com.thk.feature_product.data
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.thk.feature_product.MODULE_NAME
-import com.thk.feature_product.data.db.CategoryDao
-import com.thk.feature_product.data.db.CategoryDatabase
-import com.thk.feature_product.data.network.service.CategoryListRetrofitService
+import com.thk.feature_product.data.db.ProductDao
+import com.thk.feature_product.data.db.ProductDatabase
+import com.thk.feature_product.data.network.service.ProductRetrofitService
 import com.thk.feature_product.domain.repository.ProductRepository
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
@@ -17,17 +17,17 @@ internal val dataModule = Kodein.Module("${MODULE_NAME}DataModule") {
 
     bind<ProductRepository>() with singleton { ProductRepositoryImpl(instance(), instance()) }
 
-    bind() from singleton { instance<Retrofit>().create(CategoryListRetrofitService::class.java) }
+    bind() from singleton { instance<Retrofit>().create(ProductRetrofitService::class.java) }
 
-    bind<RoomDatabase.Builder<CategoryDatabase>>() with singleton {
+    bind<RoomDatabase.Builder<ProductDatabase>>() with singleton {
         Room.databaseBuilder(
             instance(),
-            CategoryDatabase::class.java,
+            ProductDatabase::class.java,
             "Category.db"
         )
     }
 
-    bind<CategoryDatabase>() with singleton { instance<RoomDatabase.Builder<CategoryDatabase>>().build() }
+    bind<ProductDatabase>() with singleton { instance<RoomDatabase.Builder<ProductDatabase>>().build() }
 
-    bind<CategoryDao>() with singleton { instance<CategoryDatabase>().categories() }
+    bind<ProductDao>() with singleton { instance<ProductDatabase>().categories() }
 }

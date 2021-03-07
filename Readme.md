@@ -6,8 +6,6 @@ List/Detail menu application assignment
 
 - List menu items
 
-
-
 ## Characteristics
 
 [Modular Architecture](https://www.youtube.com/watch?v=PZBg5DIzNww)
@@ -23,3 +21,11 @@ List/Detail menu application assignment
 ## Tech stack
 
 [Navigation component](https://developer.android.com/guide/navigation)
+
+Retrofit
+
+- Testing
+  - [Junit5](https://github.com/mannodermaus/android-junit5)
+  - [Mockk](https://mockk.io/)
+  - [Kluent](https://github.com/MarkusAmshove/Kluent)
+

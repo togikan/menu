@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.thk.feature_product.data.db.model.CategoryEntity
 
 @Dao
-internal interface CategoryDao {
+internal interface ProductDao {
 
     @Query("SELECT * FROM categories")
     suspend fun getAll(): List<CategoryEntity>

@@ -8,7 +8,7 @@ internal data class CategoryJson(
     @field:Json(name = "id") val id: String,
     @field:Json(name = "name") val name: String,
     @field:Json(name = "description") val description: String,
-    @field:Json(name = "products") val products: List<ProductJson>
+    @field:Json(name = "products") val products: List<ProductJson>?
 )
 
 internal fun CategoryJson.toEntity() =
@@ -24,6 +24,6 @@ internal fun CategoryJson.toDomainModel(): Category {
         id = this.id,
         name = this.name,
         description = this.description,
-        products = this.products.mapNotNull { it.toDomainModel() } ?: listOf()
+        products = this.products?.mapNotNull { it.toDomainModel() } ?: listOf()
     )
 }
