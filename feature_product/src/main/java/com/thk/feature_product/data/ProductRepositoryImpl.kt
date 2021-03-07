@@ -16,9 +16,13 @@ internal class ProductRepositoryImpl(
     override suspend fun getCategoryList(): List<Category> {
         return try {
             categoryListRetrofitService.getCategoryListAsync()
-                ?.categoryList?.mapNotNull { it.toDomainModel() } ?: listOf()
+                ?.mapNotNull {
+                    it.toDomainModel()
+                } ?: listOf()
         } catch (e: UnknownHostException) {
-            categoryDao.getAll().mapNotNull { it.toDomainModel() } ?: listOf()
+            categoryDao.getAll().mapNotNull {
+                it.toDomainModel()
+            } ?: listOf()
         }
     }
 }
