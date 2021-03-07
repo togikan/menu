@@ -7,16 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.thk.feature_product.R
 
-
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
-class ItemRecyclerViewAdapter() : RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>() {
+class ProductRecyclerViewAdapter() : RecyclerView.Adapter<ProductRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_menu_item, parent, false)
+            .inflate(R.layout.fragment_product_item, parent, false)
         return ViewHolder(view)
     }
 

@@ -1,11 +1,9 @@
 package com.thk.menu.core.feature
 
-import com.thk.menu.BuildConfig
-
 object FeatureManager {
 
     //TODO: Use kotlin DSL for gradle to get module names dynamically
-    val kodeinModules = BuildConfig.FEATURE_MODULE_NAMES
+    val kodeinModules = arrayOf("module")
         .map { "com.thk.feature_product.FeatureKodeinModule" }
         .map {
             try {

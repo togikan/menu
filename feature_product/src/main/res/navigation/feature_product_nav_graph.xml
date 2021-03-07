@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:moduleName="feature_product"
-    app:startDestination="@id/MenuItemListFragment">
+    app:startDestination="@id/ProductListFragment">
 
     <fragment
-        android:id="@+id/MenuItemListFragment"
-        android:name="com.thk.feature_product.presentation.list.ItemListFragment"
-        android:label="MenuItemListFragment"
+        android:id="@+id/ProductListFragment"
+        android:name="com.thk.feature_product.presentation.list.ProductListFragment"
+        android:label="ProductListFragment"
         app:moduleName="feature_product">
     </fragment>
 
