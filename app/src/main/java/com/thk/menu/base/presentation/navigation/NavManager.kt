@@ -2,7 +2,7 @@ package com.thk.menu.base.presentation.navigation
 
 import androidx.navigation.NavDirections
 
-class NavigationManager {
+class NavManager {
     private var navEventListener: ((navDirections: NavDirections) -> Unit)? = null
 
     fun navigate(navDirections: NavDirections) {

@@ -2,7 +2,7 @@ package com.thk.feature_product.presentation
 
 import androidx.fragment.app.Fragment
 import com.thk.feature_product.MODULE_NAME
-import com.thk.feature_product.presentation.list.ProductRecyclerViewAdapter
+import com.thk.feature_product.presentation.list.recyclerview.CategoryRecyclerViewAdapter
 import com.thk.feature_product.presentation.list.ProductListViewModel
 import com.thk.menu.base.di.KotlinViewModelProvider
 import org.kodein.di.Kodein
@@ -18,5 +18,5 @@ internal val presentationModule = Kodein.Module("${MODULE_NAME}PresentationModul
         KotlinViewModelProvider.of(context) { ProductListViewModel(instance(), instance()) }
     }
 
-    bind() from singleton { ProductRecyclerViewAdapter() }
+    bind() from singleton { CategoryRecyclerViewAdapter() }
 }

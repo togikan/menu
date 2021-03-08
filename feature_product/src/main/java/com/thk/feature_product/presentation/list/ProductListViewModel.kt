@@ -2,16 +2,17 @@ package com.thk.feature_product.presentation.list
 
 import androidx.lifecycle.viewModelScope
 import com.thk.feature_product.domain.model.Category
+import com.thk.feature_product.domain.model.Product
 import com.thk.feature_product.domain.usecase.GetCategoryListUseCase
-import com.thk.menu.base.presentation.navigation.NavigationManager
+import com.thk.menu.base.presentation.navigation.NavManager
 import com.thk.menu.base.presentation.viewmodel.BaseAction
 import com.thk.menu.base.presentation.viewmodel.BaseViewModel
 import com.thk.menu.base.presentation.viewmodel.BaseViewState
 import kotlinx.coroutines.launch
 
 internal class ProductListViewModel(
-    private val navManager: NavigationManager,
-    private val getCategoryListUseCase: GetCategoryListUseCase
+        private val navManager: NavManager,
+        private val getCategoryListUseCase: GetCategoryListUseCase
 ) : BaseViewModel<ProductListViewModel.ViewState, ProductListViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {
@@ -48,6 +49,10 @@ internal class ProductListViewModel(
                 sendAction(action)
             }
         }
+    }
+
+    fun navigateToProductDetails(product: Product) {
+        //FIXME: Navigate to details
     }
 
     internal data class ViewState(

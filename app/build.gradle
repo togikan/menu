@@ -17,7 +17,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "API_BASE_URL", "\"http://mobcategories.s3-website-eu-west-1.amazonaws.com/\""
+        buildConfigField "String", "API_BASE_URL", "\"http://mobcategories.s3-website-eu-west-1.amazonaws.com\""
     }
 
     buildFeatures {
