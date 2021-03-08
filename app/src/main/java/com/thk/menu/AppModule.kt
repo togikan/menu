@@ -25,15 +25,15 @@ val appModule = Kodein.Module("${MODULE_NAME}Module") {
 
     bind<OkHttpClient>() with singleton {
         instance<OkHttpClient.Builder>()
-                .addInterceptor(instance<HttpLoggingInterceptor>())
-                .build()
+            .addInterceptor(instance<HttpLoggingInterceptor>())
+            .build()
     }
 
     bind<Retrofit>() with singleton {
         instance<Retrofit.Builder>()
-                .baseUrl(BuildConfig.API_BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .client(instance())
-                .build()
+            .baseUrl(BuildConfig.API_BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .client(instance())
+            .build()
     }
 }

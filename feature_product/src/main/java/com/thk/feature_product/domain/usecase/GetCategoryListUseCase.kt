@@ -14,8 +14,7 @@ internal class GetCategoryListUseCase(
 
     suspend fun execute(): Result {
         return try {
-            Result.Success(
-                productRepository.getCategoryList())
+            Result.Success(productRepository.getCategoryList())
         } catch (e: IOException) {
             Result.Error(e)
         }

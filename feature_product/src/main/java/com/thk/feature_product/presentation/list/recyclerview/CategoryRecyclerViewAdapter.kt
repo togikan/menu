@@ -9,7 +9,8 @@ import com.thk.feature_product.domain.model.Category
 import com.thk.feature_product.domain.model.Product
 import com.thk.menu.base.delegate.observer
 
-internal class CategoryRecyclerViewAdapter : RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>() {
+internal class CategoryRecyclerViewAdapter :
+    RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>() {
 
     var categories: List<Category> by observer(listOf()) {
         notifyDataSetChanged()
@@ -36,12 +37,13 @@ internal class CategoryRecyclerViewAdapter : RecyclerView.Adapter<CategoryRecycl
     }
 
     internal inner class ViewHolder(private val binding: FragmentCategoryItemBinding) :
-            RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(category: Category) {
             binding.name.text = category.name
             binding.recyclerView.apply {
-//            setHasFixedSize(true)
+
+                //TODO: Benchmark nested and fixed size rv performance
                 val columnWidth = context.resources.getDimension(R.dimen.image_size).toInt()
                 layoutManager = GridAutoFitLayoutManager(context, columnWidth)
                 val productAdapter = ProductRecyclerViewAdapter(category.products)

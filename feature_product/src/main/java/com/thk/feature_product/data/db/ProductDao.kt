@@ -12,9 +12,6 @@ internal interface ProductDao {
     @Query("SELECT * FROM categories")
     suspend fun getAll(): List<CategoryEntity>
 
-    @Query("SELECT * FROM categories where id = :id")
-    suspend fun getCategory(id: String): CategoryEntity
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCategory(categories: List<CategoryEntity>)
 }
