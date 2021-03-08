@@ -9,6 +9,26 @@
         android:name="com.thk.feature_product.presentation.list.ProductListFragment"
         android:label="ProductListFragment"
         app:moduleName="feature_product">
+        <action
+            android:id="@+id/actionProductListToProductDetail"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.thk.feature_product.presentation.detail.ProductDetailFragment"
+        android:label="ProductDetailFragment"
+        app:moduleName="feature_product">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="salePrice"
+            app:argType="string" />
     </fragment>
 
 </navigation>

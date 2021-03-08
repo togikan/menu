@@ -21,14 +21,14 @@ internal class ProductListViewModel(
 
     override fun onReduceState(viewAction: Action) = when (viewAction) {
         is Action.CategoryListLoadingSuccess -> state.copy(
-            isLoading = false,
-            isError = false,
-            categories = viewAction.categories
+                isLoading = false,
+                isError = false,
+                categories = viewAction.categories
         )
         is Action.CategoryListLoadingFailure -> state.copy(
-            isLoading = false,
-            isError = true,
-            categories = listOf()
+                isLoading = false,
+                isError = true,
+                categories = listOf()
         )
     }
 
@@ -52,13 +52,18 @@ internal class ProductListViewModel(
     }
 
     fun navigateToProductDetails(product: Product) {
-        //FIXME: Navigate to details
+        val navDirections = ProductListFragmentDirections.actionProductListToProductDetail(
+                name = product.name,
+                url = product.url,
+                salePrice = product.salePrice
+        )
+        navManager.navigate(navDirections)
     }
 
     internal data class ViewState(
-        val isLoading: Boolean = true,
-        val isError: Boolean = false,
-        val categories: List<Category> = listOf()
+            val isLoading: Boolean = true,
+            val isError: Boolean = false,
+            val categories: List<Category> = listOf()
     ) : BaseViewState
 
     internal sealed class Action : BaseAction {

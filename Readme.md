@@ -14,15 +14,16 @@ List/Detail menu application assignment
 - Make use of [app bundles](https://developer.android.com/guide/app-bundle) and [dynamic delivery](https://developer.android.com/guide/app-bundle/play-feature-delivery). It will let on demand delivery and have smaller install sizes.
 - Isolated feature testing
 
-[Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+Clean Architecture (feature module level)
 
 [MVVM](https://developer.android.com/jetpack/guide) + [MVI](https://www.raywenderlich.com/817602-mvi-architecture-for-android-tutorial-getting-started)
 
 ## Tech stack
 
-[Navigation component](https://developer.android.com/guide/navigation)
+[Navigation component](https://developer.android.com/guide/navigation) + [SafeArgs](https://developer.android.com/guide/navigation/navigation-pass-data)
 
 Retrofit
+[Coil](https://github.com/coil-kt/coil)
 
 - Testing
   - [Junit5](https://github.com/mannodermaus/android-junit5)

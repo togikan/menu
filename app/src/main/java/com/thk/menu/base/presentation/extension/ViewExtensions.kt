@@ -26,11 +26,6 @@ fun View.setOnDebouncedClickListener(action: () -> Unit) {
     }
 }
 
-fun View.removeOnDebouncedClickListener() {
-    setOnClickListener(null)
-    isClickable = false
-}
-
 private class ActionDebouncer(private val action: () -> Unit) {
 
     companion object {
