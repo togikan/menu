@@ -59,9 +59,15 @@ Use kotlin DSL for improved dependency management and get module names dynamical
 ## Inspired from projects
 
 https://github.com/android
+
 https://github.com/google-developer-training/android-kotlin-fundamentals-apps
+
 https://github.com/android/sunflower
+
 https://github.com/igorwojda/android-showcase
+
 https://github.com/android/architecture-samples
+
 https://github.com/material-components/material-components-android
+
 https://github.com/bufferapp/android-clean-architecture-boilerplate
