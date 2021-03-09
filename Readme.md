@@ -10,9 +10,7 @@ App tested with Android versions 6, 9 and 11
 - Supports offline usage
 - Supports dark theme (night mode in Samsung devices)
 
-![Alt text](https://github.com/togikan/menu/blob/master/light.jpg?raw=true "Optional Title")
-
-![Alt text](https://github.com/togikan/menu/blob/master/dark.jpg?raw=true "Optional Title")
+![Alt text](https://github.com/togikan/menu/blob/master/light.jpg?raw=true "Optional Title") ![Alt text](https://github.com/togikan/menu/blob/master/dark.jpg?raw=true "Optional Title")
 
 ## Characteristics
 
