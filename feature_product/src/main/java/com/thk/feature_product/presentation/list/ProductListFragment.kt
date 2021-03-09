@@ -2,13 +2,13 @@ package com.thk.feature_product.presentation.list
 
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thk.feature_product.R
 import com.thk.feature_product.databinding.FragmentProductListBinding
-import com.thk.feature_product.presentation.list.recyclerview.GridAutoFitLayoutManager
 import com.thk.feature_product.presentation.list.recyclerview.CategoryRecyclerViewAdapter
 import com.thk.menu.base.delegate.viewBinding
 import com.thk.menu.base.presentation.extension.observe
@@ -36,8 +36,12 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
 
         val context = requireContext()
 
-        categoryAdapter.setOnDebouncedClickListener {
-            viewModel.navigateToProductDetails(it)
+        categoryAdapter.setOnDebouncedClickListener { product, view ->
+            val extras: FragmentNavigator.Extras = FragmentNavigatorExtras(view to product.name)
+            findNavController().navigate(ProductListFragmentDirections.actionProductListToProductDetail(
+                    name = product.name,
+                    url = product.url,
+                    salePrice = product.salePrice), extras)
         }
 
         binding.recyclerView.apply {

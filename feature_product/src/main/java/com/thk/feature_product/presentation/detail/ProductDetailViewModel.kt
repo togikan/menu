@@ -10,9 +10,8 @@ import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action
 import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action.ProductLoadingFailure
 import kotlinx.coroutines.launch
 
-internal class ProductDetailViewModel(
-    private val args: ProductDetailFragmentArgs
-) : BaseViewModel<ProductDetailViewModel.ViewState, Action>(ViewState()) {
+internal class ProductDetailViewModel() :
+    BaseViewModel<ProductDetailViewModel.ViewState, Action>(ViewState()) {
 
     override fun onReduceState(viewAction: Action) = when (viewAction) {
         is ProductLoadingSuccess -> state.copy(

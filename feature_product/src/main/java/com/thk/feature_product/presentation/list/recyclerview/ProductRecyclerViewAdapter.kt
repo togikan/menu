@@ -1,6 +1,7 @@
 package com.thk.feature_product.presentation.list.recyclerview
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -16,7 +17,7 @@ import com.thk.menu.base.presentation.extension.visible
 internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductRecyclerViewAdapter.ViewHolder>() {
 
-    private var onDebouncedClickListener: ((product: Product) -> Unit)? = null
+    private var onDebouncedClickListener: ((product: Product, view: View) -> Unit)? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -34,7 +35,7 @@ internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
 
     override fun getItemCount(): Int = products.size
 
-    fun setOnDebouncedClickListener(listener: (product: Product) -> Unit) {
+    fun setOnDebouncedClickListener(listener: (product: Product, view: View) -> Unit) {
         this.onDebouncedClickListener = listener
     }
 
@@ -47,7 +48,7 @@ internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
             if (it == null) {
                 setDefaultImage()
             } else {
-                binding.coverImageView.load(it) {
+                binding.image.load(it) {
                     crossfade(true)
                     error(R.drawable.ic_image)
                     transformations(RoundedCornersTransformation(10F))
@@ -58,7 +59,8 @@ internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
         fun bind(product: Product) {
             binding.name.text = product.name
             url = product.url
-            itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(product) }
+            binding.root.transitionName = product.name
+            itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(product, binding.root) }
         }
 
         private fun setDefaultImage() {

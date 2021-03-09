@@ -22,6 +22,6 @@ internal val presentationModule = Kodein.Module("${MODULE_NAME}PresentationModul
     bind() from singleton { CategoryRecyclerViewAdapter() }
 
     bind<ProductDetailViewModel>() with scoped<Fragment>(AndroidLifecycleScope).singleton {
-        KotlinViewModelProvider.of(context) { ProductDetailViewModel(instance()) }
+        KotlinViewModelProvider.of(context) { ProductDetailViewModel() }
     }
 }

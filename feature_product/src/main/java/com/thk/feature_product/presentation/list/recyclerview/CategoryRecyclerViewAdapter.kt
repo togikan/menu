@@ -2,6 +2,7 @@ package com.thk.feature_product.presentation.list.recyclerview
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.thk.feature_product.R
 import com.thk.feature_product.databinding.FragmentCategoryItemBinding
@@ -16,7 +17,7 @@ internal class CategoryRecyclerViewAdapter :
         notifyDataSetChanged()
     }
 
-    private var onDebouncedClickListener: ((product: Product) -> Unit)? = null
+    private var onDebouncedClickListener: ((product: Product, view: View) -> Unit)? = null
 
     private val viewPool = RecyclerView.RecycledViewPool()
 
@@ -32,7 +33,7 @@ internal class CategoryRecyclerViewAdapter :
 
     override fun getItemCount(): Int = categories.size
 
-    fun setOnDebouncedClickListener(listener: (product: Product) -> Unit) {
+    fun setOnDebouncedClickListener(listener: (product: Product, view: View) -> Unit) {
         this.onDebouncedClickListener = listener
     }
 
