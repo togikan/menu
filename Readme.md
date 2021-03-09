@@ -36,4 +36,5 @@ Clean Architecture (feature module level)
   - [Kluent](https://github.com/MarkusAmshove/Kluent)
 
 [Used color palette depending on this article.](https://awgsalesservices.com/2016/04/21/color-psychology-in-food-marketing/#:~:text=Yellow%20and%20orange%20are%20colors,orange%2C%20they%20become%20passionately%20hungry.)
+
 [Used material color tool](https://material.io/resources/color/)
