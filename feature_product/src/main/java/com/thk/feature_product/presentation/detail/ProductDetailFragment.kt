@@ -36,5 +36,7 @@ class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail
             error(R.drawable.ic_image)
             transformations(RoundedCornersTransformation(10F))
         }
+        binding.name.text = args.name
+        binding.salePrice.text = args.salePrice
     }
 }
