@@ -21,7 +21,7 @@ object DataFixtures {
         id: String = "id",
         categoryId: String = "categoryId",
         name: String = "name",
-        url: String? = "url",
+        url: String? = "/url",
         description: String = "description",
         salePrice: SalePriceJson = getProductSalePriceDataModel()
     ): ProductJson = ProductJson(id, categoryId, name, url, description, salePrice)
@@ -31,21 +31,11 @@ object DataFixtures {
             id = "id",
             categoryId = "categoryId",
             name = "name",
-            url = "url",
+            url = "/url",
             description = "description",
             getProductSalePriceDataModel()
         )
     )
-
-    internal fun getMinimalProduct(): ProductJson =
-        getProduct(
-            id = "id",
-            categoryId = "categoryId",
-            name = "name",
-            url = null,
-            description = "description",
-            salePrice = getProductSalePriceDataModel()
-        )
 
     internal fun getProductSalePriceDataModel(
         amount: String = "amount",

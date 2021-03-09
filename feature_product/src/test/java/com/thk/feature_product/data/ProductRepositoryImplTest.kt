@@ -6,6 +6,7 @@ import com.thk.feature_product.data.network.service.ProductRetrofitService
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
+import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.runBlocking
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.BeforeEach
@@ -16,7 +17,7 @@ class ProductRepositoryImplTest {
     @MockK
     internal lateinit var mockService: ProductRetrofitService
 
-    @MockK
+    @RelaxedMockK
     internal lateinit var mockProductDao: ProductDao
 
     private lateinit var productRepositoryImp: ProductRepositoryImpl
