@@ -42,10 +42,10 @@ internal class CategoryRecyclerViewAdapter :
 
         fun bind(category: Category) {
             binding.name.text = category.name
-            binding.recyclerView.apply {
 
+            binding.recyclerView.apply {
                 //TODO: Benchmark nested and fixed size rv performance
-                val columnWidth = context.resources.getDimension(R.dimen.image_size).toInt()
+                val columnWidth = context.resources.getDimension(R.dimen.column_size).toInt()
                 layoutManager = GridAutoFitLayoutManager(context, columnWidth)
                 val productAdapter = ProductRecyclerViewAdapter(category.products)
                 onDebouncedClickListener?.let { productAdapter.setOnDebouncedClickListener(it) }
