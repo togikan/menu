@@ -20,6 +20,8 @@ App tested with Android versions 6, 9 and 11
 
 Clean Architecture (feature module level)
 
+[Single Activity architecture](https://www.youtube.com/watch?v=2k8x8V77CrU)
+
 [MVVM](https://developer.android.com/jetpack/guide) + [MVI](https://www.raywenderlich.com/817602-mvi-architecture-for-android-tutorial-getting-started)
 
 ## Tech stack
@@ -48,12 +50,15 @@ Clean Architecture (feature module level)
 
 [Kluent](https://github.com/MarkusAmshove/Kluent)
 
+## UI
 [Used color palette depending on this article.](https://awgsalesservices.com/2016/04/21/color-psychology-in-food-marketing/#:~:text=Yellow%20and%20orange%20are%20colors,orange%2C%20they%20become%20passionately%20hungry.)
 
 [Used material color tool](https://material.io/resources/color/)
 
 ## TODOs
 Use kotlin DSL for improved dependency management and get module names dynamically
+
+Improve fade animation
 
 
 ## Inspired from projects

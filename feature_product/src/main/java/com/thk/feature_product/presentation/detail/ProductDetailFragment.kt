@@ -21,7 +21,7 @@ class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val transformation: MaterialContainerTransform = MaterialContainerTransform().apply {
-            fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
+            fadeMode = MaterialContainerTransform.FADE_MODE_OUT
             duration = 500
         }
         sharedElementEnterTransition = transformation
