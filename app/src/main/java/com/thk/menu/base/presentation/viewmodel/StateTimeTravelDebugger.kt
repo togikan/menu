@@ -1,6 +1,9 @@
 package com.thk.menu.base.presentation.viewmodel
 
+import android.util.Log
 import kotlin.reflect.full.memberProperties
+
+private const val TAG = "StateTimeTravelDebugger"
 
 class StateTimeTravelDebugger(private val viewClassName: String) {
 
@@ -39,13 +42,9 @@ class StateTimeTravelDebugger(private val viewClassName: String) {
         return message
     }
 
-    fun logAll() {
-        //FIXME: Log
-    }
-
     fun logLast() {
         val states = listOf(stateTimeline.last())
-        //FIXME: Log
+        Log.d(TAG, states.toString())
     }
 
     private fun getLogLine(oldState: BaseViewState, newState: BaseViewState, propertyName: String): String {
