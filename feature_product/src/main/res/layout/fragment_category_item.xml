@@ -11,6 +11,7 @@
         android:layout_height="48dp"
         android:paddingTop="@dimen/space_medium"
         android:paddingStart="@dimen/space_small"
+        android:textAppearance="@style/Headline"
         app:layout_constraintBottom_toTopOf="@id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,9 +2,13 @@
 
 List/Detail menu application assignment
 
+App tested with Android versions 6, 9 and 11
 ## Features
 
 - List menu items
+- Show menu item details
+- Supports offline usage
+- Supports dark theme (night mode in Samsung devices)
 
 ## Characteristics
 
@@ -21,8 +25,9 @@ Clean Architecture (feature module level)
 ## Tech stack
 
 [Navigation component](https://developer.android.com/guide/navigation) + [SafeArgs](https://developer.android.com/guide/navigation/navigation-pass-data)
+[Material Motion](https://material.io/develop/android/theming/motion)
 
-Retrofit
+[Retrofit](https://square.github.io/retrofit/)
 [Coil](https://github.com/coil-kt/coil)
 
 - Testing
@@ -30,3 +35,5 @@ Retrofit
   - [Mockk](https://mockk.io/)
   - [Kluent](https://github.com/MarkusAmshove/Kluent)
 
+[Used color palette depending on this article.](https://awgsalesservices.com/2016/04/21/color-psychology-in-food-marketing/#:~:text=Yellow%20and%20orange%20are%20colors,orange%2C%20they%20become%20passionately%20hungry.)
+[Used material color tool](https://material.io/resources/color/)
