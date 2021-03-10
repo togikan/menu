@@ -5,9 +5,10 @@ List/Detail menu application assignment
 App tested with Android versions 6, 9 and 11
 
 **EDIT: March 10th, 2021**
+
 App checked agains [core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality) checklist. Only breach is using [http endpoint rather than https](https://developer.android.com/docs/quality-guidelines/core-app-quality#SC-9).
 
-App tested against Android 12 preview
+App tested against Android 12 preview.
 
 App tested with profiler with list and details screen in portrait/landscape mode. No flags or warning.
 
