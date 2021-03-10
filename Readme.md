@@ -3,6 +3,22 @@
 List/Detail menu application assignment
 
 App tested with Android versions 6, 9 and 11
+
+**EDIT: March 10th, 2021**
+App checked agains [core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality) checklist. Only breach is using [http endpoint rather than https](https://developer.android.com/docs/quality-guidelines/core-app-quality#SC-9).
+
+App tested against Android 12 preview
+
+App tested with profiler with list and details screen in portrait/landscape mode. No flags or warning.
+
+![Alt text](https://github.com/togikan/menu/blob/master/profiler.png?raw=true "Profiler")
+
+App tested on google play console [pre-launch report](https://support.google.com/googleplay/android-developer/answer/9844487?hl=en), no issues detected.
+![Alt text](https://github.com/togikan/menu/blob/master/prelaunch.png?raw=true "Prelaunch")
+
+App tested with [android vitals](https://developer.android.com/topic/performance/vitals), no issues detected.
+![Alt text](https://github.com/togikan/menu/blob/master/vitals.png?raw=true "Vitals")
+
 ## Features
 
 - List menu items
@@ -10,7 +26,7 @@ App tested with Android versions 6, 9 and 11
 - Supports offline usage
 - Supports dark theme (night mode in Samsung devices)
 
-![Alt text](https://github.com/togikan/menu/blob/master/light.jpg?raw=true "Optional Title") ![Alt text](https://github.com/togikan/menu/blob/master/dark.jpg?raw=true "Optional Title")
+![Alt text](https://github.com/togikan/menu/blob/master/light.jpg?raw=true "Light theme") ![Alt text](https://github.com/togikan/menu/blob/master/dark.jpg?raw=true "Dark theme")
 
 ## Characteristics
 
