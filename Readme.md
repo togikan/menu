@@ -6,9 +6,9 @@ App tested with Android versions 6, 9 and 11
 
 **EDIT: March 10th, 2021**
 
-App checked agains [core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality) checklist. Only breach is using [http endpoint rather than https](https://developer.android.com/docs/quality-guidelines/core-app-quality#SC-9).
+App checked against [core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality) checklist. The only breach is using [http endpoint rather than https](https://developer.android.com/docs/quality-guidelines/core-app-quality#SC-9).
 
-App tested against Android 12 preview.
+App tested with Android 12 preview.
 
 App tested with profiler with list and details screen in portrait/landscape mode. No flags or warning.
 
@@ -34,7 +34,7 @@ App tested with [android vitals](https://developer.android.com/topic/performance
 [Modular Architecture](https://www.youtube.com/watch?v=PZBg5DIzNww)
 - More scalable and maintainable
 - Faster incremental compilation
-- Make use of [app bundles](https://developer.android.com/guide/app-bundle) and [dynamic delivery](https://developer.android.com/guide/app-bundle/play-feature-delivery). It will let on demand delivery and have smaller install sizes.
+- Make use of [app bundles](https://developer.android.com/guide/app-bundle) and [dynamic delivery](https://developer.android.com/guide/app-bundle/play-feature-delivery). It will let on-demand delivery and have smaller install sizes.
 - Isolated feature testing
 
 Clean Architecture (feature module level)
