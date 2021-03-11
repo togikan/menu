@@ -44,7 +44,6 @@ internal class CategoryRecyclerViewAdapter :
             binding.name.text = category.name
 
             binding.recyclerView.apply {
-                //TODO: Benchmark nested vs fixed size rv performance
                 val columnWidth = context.resources.getDimension(R.dimen.column_size).toInt()
                 layoutManager = GridAutoFitLayoutManager(context, columnWidth)
                 val productAdapter = ProductRecyclerViewAdapter(category.products)

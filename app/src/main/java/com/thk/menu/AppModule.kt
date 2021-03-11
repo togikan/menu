@@ -8,6 +8,7 @@ import org.kodein.di.generic.instance
 import org.kodein.di.generic.singleton
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 internal const val MODULE_NAME = "App"
 
@@ -26,6 +27,8 @@ val appModule = Kodein.Module("${MODULE_NAME}Module") {
     bind<OkHttpClient>() with singleton {
         instance<OkHttpClient.Builder>()
             .addInterceptor(instance<HttpLoggingInterceptor>())
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
             .build()
     }
 
