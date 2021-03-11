@@ -3,6 +3,7 @@ package com.thk.feature_product.data
 import com.thk.feature_product.data.network.model.CategoryJson
 import com.thk.feature_product.data.network.model.ProductJson
 import com.thk.feature_product.data.network.model.SalePriceJson
+import com.thk.feature_product.data.network.model.toDomainModel
 
 object DataFixtures {
 
@@ -33,7 +34,7 @@ object DataFixtures {
             name = "name",
             url = "/url",
             description = "description",
-            getProductSalePriceDataModel()
+            salePrice = getProductSalePriceDataModel()
         )
     )
 
