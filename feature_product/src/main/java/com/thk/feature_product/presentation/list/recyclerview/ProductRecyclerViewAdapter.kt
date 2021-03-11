@@ -11,6 +11,7 @@ import com.thk.feature_product.databinding.FragmentProductItemBinding
 import com.thk.feature_product.domain.model.Product
 import com.thk.menu.base.delegate.observer
 import com.thk.menu.base.presentation.extension.gone
+import com.thk.menu.base.presentation.extension.loadFromUrl
 import com.thk.menu.base.presentation.extension.setOnDebouncedClickListener
 import com.thk.menu.base.presentation.extension.visible
 
@@ -42,29 +43,11 @@ internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
     internal inner class ViewHolder(private val binding: FragmentProductItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private var url by observer<String?>(null) {
-            binding.coverErrorImageView.gone()
-
-            if (it == null) {
-                setDefaultImage()
-            } else {
-                binding.image.load(it) {
-                    crossfade(true)
-                    error(R.drawable.ic_image)
-                    transformations(RoundedCornersTransformation(10F))
-                }
-            }
-        }
-
         fun bind(product: Product) {
             binding.name.text = product.name
-            url = product.url
+            binding.image.loadFromUrl(product.url)
             binding.root.transitionName = product.name
             itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(product, binding.root) }
-        }
-
-        private fun setDefaultImage() {
-            binding.coverErrorImageView.visible()
         }
     }
 }
