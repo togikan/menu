@@ -1,3 +1,0 @@
-include ':feature_product'
-include ':app'
-rootProject.name = "menu"
