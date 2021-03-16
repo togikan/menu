@@ -38,13 +38,15 @@ Clean Architecture (feature module level)
 
 [Room](https://developer.android.com/jetpack/androidx/releases/room)
 
-[Material Motion](https://material.io/develop/android/theming/motion)
-
 [Kodein](https://kodein.org/Kodein-DI/?5.0/android) kotlin friendly DI
 
 [Retrofit](https://square.github.io/retrofit/)
 
 [Coil](https://github.com/coil-kt/coil) kotlin friendly image loader
+
+[Material Motion](https://material.io/develop/android/theming/motion)
+
+[Lottie](https://github.com/airbnb/lottie-android)
 
 [Junit5](https://github.com/mannodermaus/android-junit5)
 
@@ -58,9 +60,11 @@ Clean Architecture (feature module level)
 [Used material color tool](https://material.io/resources/color/)
 
 ## TODOs
-Use kotlin DSL for improved dependency management and get module names dynamically
+~~Use kotlin DSL for improved dependency management and get module names dynamically~~
 
-Improve fade animation
+~~Improve fade animation~~
+
+**EDIT: March 16th, 2021**: TODOs completed after submission on [enhancement branch](https://github.com/togikan/menu/tree/enhancement).
 
 ## Quality checks
 
@@ -72,7 +76,7 @@ App checked against [core app quality](https://developer.android.com/docs/qualit
 
 App tested with Android 12 preview.
 
-App tested with profiler with list and details screen in portrait/landscape mode. No flags or warning.
+App tested with the profiler. List and details screen checked with portrait/landscape mode. No flags or warning.
 
 ![Alt text](https://github.com/togikan/menu/blob/master/profiler.png?raw=true "Profiler")
 
@@ -84,16 +88,18 @@ App tested with [android vitals](https://developer.android.com/topic/performance
 
 ## Inspired from projects
 
-https://github.com/android
-
 https://github.com/google-developer-training/android-kotlin-fundamentals-apps
+
+https://github.com/android
 
 https://github.com/android/sunflower
 
-https://github.com/igorwojda/android-showcase
-
 https://github.com/android/architecture-samples
 
+https://github.com/androidx/androidx
+
 https://github.com/material-components/material-components-android
+
+https://github.com/igorwojda/android-showcase
 
 https://github.com/bufferapp/android-clean-architecture-boilerplate
