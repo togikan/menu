@@ -2,15 +2,18 @@ package com.thk.feature_product.presentation.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.transition.MaterialElevationScale
 import com.thk.feature_product.R
 import com.thk.feature_product.databinding.FragmentProductListBinding
 import com.thk.feature_product.presentation.list.recyclerview.CategoryRecyclerViewAdapter
 import com.thk.menu.base.delegate.viewBinding
+import com.thk.menu.base.presentation.extension.gone
 import com.thk.menu.base.presentation.extension.observe
 import com.thk.menu.base.presentation.extension.visible
 import com.thk.menu.base.presentation.fragment.InjectionFragment
@@ -38,10 +41,13 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
 
         categoryAdapter.setOnDebouncedClickListener { product, view ->
             val extras: FragmentNavigator.Extras = FragmentNavigatorExtras(view to product.name)
-            findNavController().navigate(ProductListFragmentDirections.actionProductListToProductDetail(
+            findNavController().navigate(
+                ProductListFragmentDirections.actionProductListToProductDetail(
                     name = product.name,
                     url = product.url,
-                    salePrice = product.salePrice), extras)
+                    salePrice = product.salePrice
+                ), extras
+            )
         }
 
         binding.recyclerView.apply {
@@ -52,6 +58,8 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
 
         observe(viewModel.stateLiveData, stateObserver)
 
-        viewModel.loadData()
+        if (viewModel.stateLiveData.value?.categories == null) {
+            viewModel.loadData()
+        }
     }
 }

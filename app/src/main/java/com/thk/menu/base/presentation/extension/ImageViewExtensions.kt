@@ -5,10 +5,12 @@ import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.thk.menu.R
 
-fun ImageView.loadFromUrl(url: String?) {
+fun ImageView.loadFromUrl(url: String?, roundedCorners: Boolean = false) {
     load(url) {
         crossfade(true)
         error(R.drawable.ic_image)
-        transformations(RoundedCornersTransformation(10F))
+        if (roundedCorners) {
+            transformations(RoundedCornersTransformation(10F))
+        }
     }
 }

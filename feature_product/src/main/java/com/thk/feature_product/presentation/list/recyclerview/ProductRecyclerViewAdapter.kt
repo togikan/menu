@@ -45,7 +45,7 @@ internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
 
         fun bind(product: Product) {
             binding.name.text = product.name
-            binding.image.loadFromUrl(product.url)
+            binding.image.loadFromUrl(product.url, true)
             binding.root.transitionName = product.name
             itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(product, binding.root) }
         }

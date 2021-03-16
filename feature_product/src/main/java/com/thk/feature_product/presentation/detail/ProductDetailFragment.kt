@@ -1,9 +1,11 @@
 package com.thk.feature_product.presentation.detail
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.MaterialContainerTransform
 import com.thk.feature_product.R
 import com.thk.feature_product.databinding.FragmentProductDetailBinding
 import com.thk.menu.base.delegate.viewBinding
@@ -20,7 +22,8 @@ class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail
         super.onCreate(savedInstanceState)
         val transformation: MaterialContainerTransform = MaterialContainerTransform().apply {
             fadeMode = MaterialContainerTransform.FADE_MODE_OUT
-            duration = 500
+            duration = resources.getInteger(R.integer.duration_animation_fade).toLong()
+            scrimColor = Color.TRANSPARENT
         }
         sharedElementEnterTransition = transformation
     }
@@ -28,9 +31,19 @@ class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.setActionBar(binding.toolbar)
+        activity?.actionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
+
         binding.root.transitionName = args.name
         binding.image.loadFromUrl(args.url)
-        binding.name.text = args.name
+        binding.collapsingToolbarLayout.title = args.name
         binding.salePrice.text = args.salePrice
     }
 }
