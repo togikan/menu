@@ -3,17 +3,12 @@ package com.thk.feature_product.presentation.list.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import coil.transform.RoundedCornersTransformation
-import com.thk.feature_product.R
 import com.thk.feature_product.databinding.FragmentProductItemBinding
 import com.thk.feature_product.domain.model.Product
-import com.thk.menu.base.delegate.observer
-import com.thk.menu.base.presentation.extension.gone
 import com.thk.menu.base.presentation.extension.loadFromUrl
 import com.thk.menu.base.presentation.extension.setOnDebouncedClickListener
-import com.thk.menu.base.presentation.extension.visible
 
 internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductRecyclerViewAdapter.ViewHolder>() {
@@ -26,7 +21,6 @@ internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
     ): ProductRecyclerViewAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = FragmentProductItemBinding.inflate(inflater, parent, false)
-
         return ViewHolder(binding)
     }
 
@@ -42,12 +36,16 @@ internal class ProductRecyclerViewAdapter(private val products: List<Product>) :
 
     internal inner class ViewHolder(private val binding: FragmentProductItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(product: Product) {
-            binding.name.text = product.name
+            ViewCompat.setTransitionName(binding.containerItem, product.name)
+            binding.containerItem.setOnDebouncedClickListener {
+                onDebouncedClickListener?.invoke(
+                    product,
+                    binding.containerItem
+                )
+            }
             binding.image.loadFromUrl(product.url)
-            binding.root.transitionName = product.name
-            itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(product, binding.root) }
+            binding.name.text = product.name
         }
     }
 }
