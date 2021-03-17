@@ -27,9 +27,6 @@ class ProductListViewModelTest {
     @MockK
     internal lateinit var mockGetCategoryListUseCase: GetCategoryListUseCase
 
-    @MockK(relaxed = true)
-    internal lateinit var mockNavManager: NavManager
-
     private lateinit var cut: ProductListViewModel
 
     @BeforeEach
@@ -38,7 +35,6 @@ class ProductListViewModelTest {
         Dispatchers.setMain(mainThreadSurrogate)
 
         cut = ProductListViewModel(
-            mockNavManager,
             mockGetCategoryListUseCase
         )
     }
