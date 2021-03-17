@@ -62,6 +62,7 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
         observe(viewModel.stateLiveData, stateObserver)
 
         if (viewModel.stateLiveData.value?.categories == null) {
+            binding.progressBar.visible()
             viewModel.loadData()
         }
     }
