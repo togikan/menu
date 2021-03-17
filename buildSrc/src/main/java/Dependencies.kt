@@ -142,9 +142,9 @@ object Version {
     const val LOTTIE = "3.6.1"
     const val COROUTINE_TEST = "1.4.3"
     const val ROOM = "2.2.6"
-    const val MOCKK = "2.2.6"
+    const val MOCKK = "1.11.0"
     const val JUPITER = "5.7.1"
-    const val KLUENT = "5.7.1"
+    const val KLUENT = "1.65"
     const val ANNOTATION = "1.1.0"
     const val FRAGMENT_TESTING = "1.3.0"
 }
