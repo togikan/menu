@@ -25,9 +25,14 @@ class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val animationDelay = resources.getInteger(R.integer.duration_animation_fade).toLong()
+        setMaterialMotionTransition(animationDelay)
+        setupToolbar()
+        bindViewWithData()
+        showScrollHint(animationDelay)
+    }
 
+    private fun setMaterialMotionTransition(animationDelay: Long) {
         ViewCompat.setTransitionName(binding.containerDetail, args.name)
         val transformation: MaterialContainerTransform = MaterialContainerTransform().apply {
             fadeMode = MaterialContainerTransform.FADE_MODE_OUT
@@ -36,7 +41,9 @@ class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail
             drawingViewId = com.thk.menu.R.id.navHostFragment
         }
         sharedElementEnterTransition = transformation
+    }
 
+    private fun setupToolbar() {
         activity?.setActionBar(binding.toolbar)
         activity?.actionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -46,10 +53,15 @@ class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+    }
+
+    private fun bindViewWithData() {
         binding.image.loadFromUrl(args.url)
         binding.collapsingToolbarLayout.title = args.name
         binding.salePrice.text = args.salePrice
+    }
 
+    private fun showScrollHint(animationDelay: Long) {
         Timer("Snackbar", false).schedule(animationDelay) {
             Snackbar.make(
                 binding.containerDetail,

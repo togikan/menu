@@ -27,19 +27,32 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
 
     private val stateObserver = Observer<ProductListViewModel.ViewState> {
         categoryAdapter.categories = it.categories
-
         binding.progressBar.visible = it.isLoading
         binding.errorAnimation.visible = it.isError
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setItemClickListener()
+        setEnterTransition(view)
+        setupList()
 
-        val context = requireContext()
+        observe(viewModel.stateLiveData, stateObserver)
 
+        if (viewModel.stateLiveData.value?.categories == null) {
+            binding.progressBar.visible()
+            viewModel.loadData()
+        }
+    }
+
+    private fun setEnterTransition(view: View) {
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
+    }
+
+    private fun setItemClickListener() {
         categoryAdapter.setOnDebouncedClickListener { product, view ->
             val extras: FragmentNavigator.Extras = FragmentNavigatorExtras(view to product.name)
-
             findNavController().navigate(
                 ProductListFragmentDirections.actionProductListToProductDetail(
                     name = product.name,
@@ -49,21 +62,14 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
                 extras
             )
         }
+    }
 
-        postponeEnterTransition()
-        view.doOnPreDraw { startPostponedEnterTransition() }
-
+    private fun setupList() {
+        val context = requireContext()
         binding.recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = categoryAdapter
-        }
-
-        observe(viewModel.stateLiveData, stateObserver)
-
-        if (viewModel.stateLiveData.value?.categories == null) {
-            binding.progressBar.visible()
-            viewModel.loadData()
         }
     }
 }
