@@ -66,6 +66,7 @@ object Library {
     const val LOTTIE = "com.airbnb.android:lottie:${Version.LOTTIE}"
     const val COROUTINE_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.COROUTINE_TEST}"
     const val MOCKK = "io.mockk:mockk:${Version.MOCKK}"
+    const val ARCH = "androidx.arch.core:core-testing:${Version.ARCH}"
 
     fun DependencyHandler.addKotlinDependencies() {
         add(CONFIG_API, KOTLIN_STD)
@@ -114,6 +115,12 @@ object Library {
         add(CONFIG_TEST_RUNTIME_ONLY, JUPITER_ENGINE)
     }
 
+    fun DependencyHandler.addJupiterTestDependencies() {
+        add(CONFIG_IMPLEMENTATION, JUPITER_API)
+        add(CONFIG_IMPLEMENTATION, JUPITER_PARAMS)
+        add(CONFIG_TEST_RUNTIME_ONLY, JUPITER_ENGINE)
+    }
+
     fun DependencyHandler.addKluentDependencies() {
         add(CONFIG_TEST_IMPLEMENTATION, KLUENT)
         add(CONFIG_TEST_IMPLEMENTATION, KLUENT_ANDROID)
@@ -147,4 +154,5 @@ object Version {
     const val KLUENT = "1.65"
     const val ANNOTATION = "1.1.0"
     const val FRAGMENT_TESTING = "1.3.0"
+    const val ARCH = "2.1.0"
 }

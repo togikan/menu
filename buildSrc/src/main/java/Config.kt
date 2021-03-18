@@ -21,10 +21,33 @@ object Config {
 
     object Plugins {
         const val app = "com.android.application"
+        const val lib = "com.android.library"
         const val kotlinAndroid = "kotlin-android"
         const val junit5 = "de.mannodermaus.android-junit5"
         const val dynamicFeature = "com.android.dynamic-feature"
         const val kotlinKapt = "kotlin-kapt"
         const val safeArgs = "androidx.navigation.safeargs.kotlin"
     }
+}
+
+interface BuildType {
+
+    companion object {
+        const val RELEASE = "release"
+        const val DEBUG = "debug"
+    }
+
+    val isMinifyEnabled: Boolean
+}
+
+object BuildTypeDebug : BuildType {
+    override val isMinifyEnabled = false
+}
+
+object BuildTypeRelease : BuildType {
+    override val isMinifyEnabled = false
+}
+
+object TestOptions {
+    const val IS_RETURN_DEFAULT_VALUES = true
 }

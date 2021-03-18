@@ -37,15 +37,13 @@ android {
     buildFeatures.viewBinding = true
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = true
-            proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
+        getByName(BuildType.RELEASE) {
+            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
+            proguardFiles("proguard-android.txt", "proguard-rules.pro")
         }
 
-        getByName("debug") {
-            isMinifyEnabled = false
+        getByName(BuildType.DEBUG) {
+            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
         }
     }
 

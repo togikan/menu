@@ -4,6 +4,7 @@ object ModuleDependency {
     // All consts are accessed via reflection
     const val APP = ":app"
     const val FEATURE_ALBUM = ":feature_product"
+    const val LIBRARY_TEST_EXTENSION = ":library_test_extensions"
 
     /*
     Return list of all modules in the project

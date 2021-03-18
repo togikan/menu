@@ -2,7 +2,6 @@ package com.thk.menu.base.presentation.extension
 
 import android.widget.ImageView
 import coil.load
-import coil.transform.RoundedCornersTransformation
 import com.thk.menu.R
 
 fun ImageView.loadFromUrl(url: String?) {

@@ -25,15 +25,13 @@ android {
     buildFeatures.viewBinding = true
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
+        getByName(BuildType.RELEASE) {
+            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
+            proguardFiles("proguard-android.txt", "proguard-rules.pro")
         }
 
-        getByName("debug") {
-            isMinifyEnabled = false
+        getByName(BuildType.DEBUG) {
+            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
         }
     }
 
@@ -51,24 +49,29 @@ android {
         exclude("META-INF/LGPL2.1")
     }
 
-    dependencies {
-        implementation(project(ModuleDependency.APP))
-        addRoomDependencies()
-        addJupiterDependencies()
-        addKluentDependencies()
-
-        implementation(Library.RECYCLERVIEW)
-        implementation(Library.LOTTIE)
-        implementation(Library.COROUTINE_TEST)
-
-        testImplementation(Library.ROOM_TESTING)
-        testImplementation(Library.MOCKK)
-        testImplementation(Library.KOTLIN_TEST_JUNIT)
-
-        androidTestImplementation(Library.JUNIT)
-        androidTestImplementation(Library.ESPRESSO)
-        androidTestImplementation(Library.ANNOTATION)
-        androidTestImplementation(Library.NAVIGATION_TESTING)
-        androidTestImplementation(Library.FRAGMENT_TESTING)
+    testOptions {
+        unitTests.isReturnDefaultValues = TestOptions.IS_RETURN_DEFAULT_VALUES
     }
+}
+
+dependencies {
+    implementation(project(ModuleDependency.APP))
+    addRoomDependencies()
+    addJupiterDependencies()
+    addKluentDependencies()
+
+    implementation(Library.RECYCLERVIEW)
+    implementation(Library.LOTTIE)
+    implementation(Library.COROUTINE_TEST)
+
+    testImplementation(project(ModuleDependency.LIBRARY_TEST_EXTENSION))
+    testImplementation(Library.ROOM_TESTING)
+    testImplementation(Library.MOCKK)
+    testImplementation(Library.KOTLIN_TEST_JUNIT)
+
+    androidTestImplementation(Library.JUNIT)
+    androidTestImplementation(Library.ESPRESSO)
+    androidTestImplementation(Library.ANNOTATION)
+    androidTestImplementation(Library.NAVIGATION_TESTING)
+    androidTestImplementation(Library.FRAGMENT_TESTING)
 }
