@@ -53,14 +53,7 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
     private fun setItemClickListener() {
         categoryAdapter.setOnDebouncedClickListener { product, view ->
             val extras: FragmentNavigator.Extras = FragmentNavigatorExtras(view to product.name)
-            findNavController().navigate(
-                ProductListFragmentDirections.actionProductListToProductDetail(
-                    name = product.name,
-                    url = product.url,
-                    salePrice = product.salePrice
-                ),
-                extras
-            )
+            viewModel.navigateToProductDetails(product, extras)
         }
     }
 

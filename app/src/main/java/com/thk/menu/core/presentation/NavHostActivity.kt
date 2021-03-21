@@ -1,6 +1,8 @@
 package com.thk.menu.core.presentation
 
 import android.os.Bundle
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigator
 import com.thk.menu.R
 import com.thk.menu.base.delegate.viewBinding
 import com.thk.menu.base.extension.navigateSafe
@@ -23,11 +25,11 @@ class NavHostActivity : BaseActivity() {
     }
 
     private fun initNavManager() {
-        navManager.setOnNavEvent {
+        navManager.setOnNavEvent { navDirections: NavDirections, extras: Navigator.Extras ->
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment)
             val currentFragment = navHostFragment?.childFragmentManager?.fragments?.get(0)
 
-            currentFragment?.navigateSafe(it)
+            currentFragment?.navigateSafe(navDirections, extras)
         }
     }
 }
