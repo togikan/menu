@@ -6,7 +6,6 @@ import com.thk.feature_product.data.network.model.toDomainModel
 import com.thk.feature_product.data.network.model.toEntity
 import com.thk.feature_product.data.network.service.ProductRetrofitService
 import com.thk.feature_product.domain.model.Category
-import com.thk.feature_product.domain.model.Product
 import com.thk.feature_product.domain.repository.ProductRepository
 import java.net.UnknownHostException
 
@@ -30,7 +29,7 @@ internal class ProductRepositoryImpl(
         } catch (e: UnknownHostException) {
             return productDao.getAll().mapNotNull {
                 it.toDomainModel()
-            } ?: listOf()
+            }
         }
     }
 }

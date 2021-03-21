@@ -34,12 +34,12 @@ class ProductRepositoryImplTest {
         // given
         coEvery {
             mockService.getCategoryListAsync()
-        } returns listOf(DataFixtures.getCategory())
+        } returns listOf(DataFixtures.getCategoryDataModel())
 
         // when
         val result = runBlocking { productRepositoryImp.getCategoryList() }
 
         // then
-        result shouldBeEqualTo DataFixtures.getCategories().map { it.toDomainModel() }
+        result shouldBeEqualTo DataFixtures.getCategoriesDataModel().map { it.toDomainModel() }
     }
 }

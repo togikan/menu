@@ -3,43 +3,63 @@ package com.thk.feature_product.data
 import com.thk.feature_product.data.network.model.CategoryJson
 import com.thk.feature_product.data.network.model.ProductJson
 import com.thk.feature_product.data.network.model.SalePriceJson
-import com.thk.feature_product.data.network.model.toDomainModel
+import com.thk.feature_product.domain.model.Product
+import com.thk.feature_product.domain.model.SalePrice
 
 object DataFixtures {
 
-    internal fun getCategory(
+    internal fun getCategoryDataModel(
         id: String = "id",
         name: String = "name",
         description: String = "description",
-        products: List<ProductJson>? = listOf(getProduct())
+        products: List<ProductJson>? = listOf(getProductDataModel())
     ): CategoryJson = CategoryJson(id, name, description, products)
 
-    internal fun getCategories() = listOf(
-        getCategory(id = "id", name = "name", description = "description", products = getProducts())
+    internal fun getCategoriesDataModel() = listOf(
+        getCategoryDataModel(
+            id = "id",
+            name = "name",
+            description = "description",
+            products = getProductsDataModel()
+        )
     )
 
-    internal fun getProduct(
+    internal fun getProductDataModel(
         id: String = "id",
         categoryId: String = "categoryId",
         name: String = "name",
         url: String? = "/url",
         description: String = "description",
-        salePrice: SalePriceJson = getProductSalePriceDataModel()
+        salePrice: SalePriceJson = getSalePriceDataModel()
     ): ProductJson = ProductJson(id, categoryId, name, url, description, salePrice)
 
-    internal fun getProducts() = listOf(
-        getProduct(
+    internal fun getProductsDataModel() = listOf(
+        getProductDataModel(
             id = "id",
             categoryId = "categoryId",
             name = "name",
             url = "/url",
             description = "description",
-            salePrice = getProductSalePriceDataModel()
+            salePrice = getSalePriceDataModel()
         )
     )
 
-    internal fun getProductSalePriceDataModel(
+    internal fun getSalePriceDataModel(
         amount: String = "amount",
         currency: String = "currency"
     ) = SalePriceJson(amount, currency)
+
+    internal fun getProduct(
+        id: String = "id",
+        categoryId: String = "categoryId",
+        name: String = "name",
+        url: String = "/url",
+        description: String = "description",
+        salePrice: SalePrice = getSalePrice()
+    ) = Product(id, categoryId, name, url, description, salePrice)
+
+    internal fun getSalePrice(
+        amount: String = "amount",
+        currency: String = "currency"
+    ) = SalePrice(amount, currency)
 }

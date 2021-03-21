@@ -2,7 +2,6 @@ package com.thk.feature_product.data.network.model
 
 import com.squareup.moshi.Json
 import com.thk.feature_product.data.db.model.ProductEntity
-import com.thk.feature_product.data.network.formatToDisplay
 import com.thk.feature_product.domain.model.Product
 import com.thk.menu.BuildConfig
 
@@ -16,22 +15,21 @@ internal data class ProductJson(
 )
 
 internal fun ProductJson.toEntity() =
-        ProductEntity(
-                id = this.id,
-                categoryId = this.categoryId,
-                name = this.name,
-                url = "${BuildConfig.API_BASE_URL}${this.url}",
-                description = this.description,
-                salePrice = this.salePrice.formatToDisplay()
-        )
-
-internal fun ProductJson.toDomainModel(): Product {
-    return Product(
+    ProductEntity(
             id = this.id,
             categoryId = this.categoryId,
             name = this.name,
             url = "${BuildConfig.API_BASE_URL}${this.url}",
             description = this.description,
-            salePrice = this.salePrice.formatToDisplay()
+            salePrice = this.salePrice.toEntity()
     )
-}
+
+internal fun ProductJson.toDomainModel() =
+    Product(
+            id = this.id,
+            categoryId = this.categoryId,
+            name = this.name,
+            url = "${BuildConfig.API_BASE_URL}${this.url}",
+            description = this.description,
+            salePrice = this.salePrice.toDomainModel()
+    )

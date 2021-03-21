@@ -2,6 +2,7 @@ package com.thk.feature_product.presentation.list
 
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.FragmentNavigator
+import com.thk.feature_product.domain.extensions.formatToDisplay
 import com.thk.feature_product.domain.model.Category
 import com.thk.feature_product.domain.model.Product
 import com.thk.feature_product.domain.usecase.GetCategoryListUseCase
@@ -38,7 +39,7 @@ internal class ProductListViewModel(
             ProductListFragmentDirections.actionProductListToProductDetail(
                 name = product.name,
                 url = product.url,
-                salePrice = product.salePrice
+                salePrice = product.salePrice.formatToDisplay()
             )
         navManager.navigate(navDirections, extras)
     }

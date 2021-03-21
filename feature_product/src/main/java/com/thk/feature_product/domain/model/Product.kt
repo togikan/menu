@@ -6,5 +6,5 @@ internal data class Product(
     val name: String,
     val url: String?,
     val description: String,
-    val salePrice: String
+    val salePrice: SalePrice
 )

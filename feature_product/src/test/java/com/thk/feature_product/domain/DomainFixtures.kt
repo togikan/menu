@@ -2,6 +2,7 @@ package com.thk.feature_product.domain
 
 import com.thk.feature_product.domain.model.Category
 import com.thk.feature_product.domain.model.Product
+import com.thk.feature_product.domain.model.SalePrice
 
 object DomainFixtures {
 
@@ -18,6 +19,11 @@ object DomainFixtures {
         name: String = "name",
         url: String? = "url",
         description: String = "description",
-        salePrice: String = "salePrice"
+        salePrice: SalePrice = getSalePrice()
     ): Product = Product(id, categoryId, name, url, description, salePrice)
+
+    internal fun getSalePrice(
+        amount: String = "amount",
+        currency: String = "currency",
+    ): SalePrice = SalePrice(amount, currency)
 }

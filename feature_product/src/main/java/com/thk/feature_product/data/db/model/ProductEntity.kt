@@ -9,7 +9,7 @@ internal data class ProductEntity(
     val name: String,
     val url: String?,
     val description: String,
-    val salePrice: String
+    val salePrice: SalePriceEntity
 )
 
 internal fun ProductEntity.toDomainModel() =
@@ -19,5 +19,5 @@ internal fun ProductEntity.toDomainModel() =
         this.name,
         this.url,
         this.description,
-        this.salePrice
+        this.salePrice.toDomainModel()
     )

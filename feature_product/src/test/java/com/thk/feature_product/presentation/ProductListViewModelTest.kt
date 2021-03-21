@@ -1,6 +1,11 @@
 package com.thk.feature_product.presentation
 
+import androidx.navigation.fragment.FragmentNavigator
+import com.thk.feature_product.data.DataFixtures
+import com.thk.feature_product.domain.extensions.formatToDisplay
 import com.thk.feature_product.domain.model.Category
+import com.thk.feature_product.domain.model.Product
+import com.thk.feature_product.domain.model.SalePrice
 import com.thk.feature_product.domain.usecase.GetCategoryListUseCase
 import com.thk.feature_product.presentation.list.ProductListFragmentDirections
 import com.thk.feature_product.presentation.list.ProductListViewModel
@@ -11,6 +16,7 @@ import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
+import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
@@ -32,8 +38,14 @@ class ProductListViewModelTest {
     @RegisterExtension
     var instantTaskExecutorExtension = InstantTaskExecutorExtension()
 
+    @RelaxedMockK
+    internal lateinit var mockNavManager: NavManager
+
     @MockK
     internal lateinit var mockGetCategoryListUseCase: GetCategoryListUseCase
+
+    @MockK
+    internal lateinit var extras: FragmentNavigator.Extras
 
     private lateinit var cut: ProductListViewModel
 
@@ -42,6 +54,7 @@ class ProductListViewModelTest {
         MockKAnnotations.init(this)
 
         cut = ProductListViewModel(
+            mockNavManager,
             mockGetCategoryListUseCase
         )
     }
@@ -53,6 +66,24 @@ class ProductListViewModelTest {
 
         // then
         coVerify { mockGetCategoryListUseCase.execute() }
+    }
+
+    @Test
+    fun `navigate to album details`() {
+        // given
+        val product = DataFixtures.getProduct()
+
+        val navDirections = ProductListFragmentDirections.actionProductListToProductDetail(
+            product.name,
+            product.url,
+            product.salePrice.formatToDisplay()
+        )
+
+        // when
+        cut.navigateToProductDetails(product, extras)
+
+        // then
+        coVerify { mockNavManager.navigate(navDirections, extras) }
     }
 
     @Test
