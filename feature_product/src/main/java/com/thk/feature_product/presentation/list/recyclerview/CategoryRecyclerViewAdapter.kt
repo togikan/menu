@@ -43,7 +43,7 @@ internal class CategoryRecyclerViewAdapter :
         fun bind(category: Category) {
             binding.name.text = category.name
 
-            binding.recyclerView.apply {
+            binding.recyclerViewProduct.apply {
                 val columnWidth = context.resources.getDimension(R.dimen.column_size).toInt()
                 layoutManager = GridAutoFitLayoutManager(context, columnWidth)
                 val productAdapter = ProductRecyclerViewAdapter(category.products)

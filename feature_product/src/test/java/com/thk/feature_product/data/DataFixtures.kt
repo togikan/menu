@@ -48,18 +48,4 @@ object DataFixtures {
         amount: String = "amount",
         currency: String = "currency"
     ) = SalePriceJson(amount, currency)
-
-    internal fun getProduct(
-        id: String = "id",
-        categoryId: String = "categoryId",
-        name: String = "name",
-        url: String = "/url",
-        description: String = "description",
-        salePrice: SalePrice = getSalePrice()
-    ) = Product(id, categoryId, name, url, description, salePrice)
-
-    internal fun getSalePrice(
-        amount: String = "amount",
-        currency: String = "currency"
-    ) = SalePrice(amount, currency)
 }

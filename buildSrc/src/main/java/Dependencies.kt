@@ -3,6 +3,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 const val CONFIG_API = "api"
 const val CONFIG_IMPLEMENTATION = "implementation"
 const val CONFIG_TEST_IMPLEMENTATION = "testImplementation"
+const val CONFIG_ANDROID_TEST_IMPLEMENTATION = "androidTestImplementation"
 const val CONFIG_KAPT = "kapt"
 const val CONFIG_TEST_RUNTIME_ONLY = "testRuntimeOnly"
 
@@ -52,21 +53,26 @@ object Library {
     const val KLUENT = "org.amshove.kluent:kluent:${Version.KLUENT}"
     const val KLUENT_ANDROID = "org.amshove.kluent:kluent-android:${Version.KLUENT}"
 
+    //Espresso
+    const val ESPRESSO = "androidx.test.espresso:espresso-core:${Version.ESPRESSO}"
+    const val ESPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:${Version.ESPRESSO}"
+    const val ESPRESSO_IDLING = "androidx.test.espresso:espresso-idling-resource:${Version.ESPRESSO}"
+
+    //Singles
     const val KTX = "androidx.core:core-ktx:${Version.KTX}"
     const val APP_COMPAT = "androidx.appcompat:appcompat:${Version.APP_COMPAT}"
     const val MATERIAL = "com.google.android.material:material:${Version.MATERIAL}"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Version.CONSTRAINT_LAYOUT}"
     const val PLAY_CORE = "com.google.android.play:core:${Version.PLAY_CORE}"
     const val ANNOTATION = "androidx.annotation:annotation:${Version.ANNOTATION}"
-    const val FRAGMENT_TESTING = "androidx.fragment:fragment-testing:${Version.FRAGMENT_TESTING}"
     const val COIL = "io.coil-kt:coil:${Version.COIL}"
     const val JUNIT = "androidx.test.ext:junit:${Version.JUNIT}"
-    const val ESPRESSO = "androidx.test.espresso:espresso-core:${Version.ESPRESSO}"
     const val RECYCLERVIEW = "androidx.recyclerview:recyclerview:${Version.RECYCLERVIEW}"
     const val LOTTIE = "com.airbnb.android:lottie:${Version.LOTTIE}"
     const val COROUTINE_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.COROUTINE_TEST}"
     const val MOCKK = "io.mockk:mockk:${Version.MOCKK}"
     const val ARCH = "androidx.arch.core:core-testing:${Version.ARCH}"
+    const val TEST_RULES = "androidx.test:rules:${Version.TEST_RULES}"
 
     fun DependencyHandler.addKotlinDependencies() {
         add(CONFIG_API, KOTLIN_STD)
@@ -125,6 +131,12 @@ object Library {
         add(CONFIG_TEST_IMPLEMENTATION, KLUENT)
         add(CONFIG_TEST_IMPLEMENTATION, KLUENT_ANDROID)
     }
+
+    fun DependencyHandler.addEspressoDependencies() {
+        add(CONFIG_ANDROID_TEST_IMPLEMENTATION, ESPRESSO)
+        add(CONFIG_ANDROID_TEST_IMPLEMENTATION, ESPRESSO_CONTRIB)
+        add(CONFIG_IMPLEMENTATION, ESPRESSO_IDLING)
+    }
 }
 
 object Version {
@@ -153,6 +165,6 @@ object Version {
     const val JUPITER = "5.7.1"
     const val KLUENT = "1.65"
     const val ANNOTATION = "1.1.0"
-    const val FRAGMENT_TESTING = "1.3.0"
     const val ARCH = "2.1.0"
+    const val TEST_RULES = "1.3.0"
 }

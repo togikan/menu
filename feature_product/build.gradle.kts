@@ -1,3 +1,4 @@
+import Library.addEspressoDependencies
 import Library.addJupiterDependencies
 import Library.addKluentDependencies
 import Library.addRoomDependencies
@@ -56,26 +57,21 @@ android {
 
 dependencies {
     implementation(project(ModuleDependency.APP))
-    addRoomDependencies()
-    addJupiterDependencies()
-    addKluentDependencies()
-
     implementation(Library.RECYCLERVIEW)
     implementation(Library.LOTTIE)
+    addRoomDependencies()
 
     testImplementation(project(ModuleDependency.LIBRARY_TEST_EXTENSION))
     testImplementation(Library.ROOM_TESTING)
     testImplementation(Library.MOCKK)
     testImplementation(Library.KOTLIN_TEST_JUNIT)
     testImplementation(Library.COROUTINE_TEST)
+    addJupiterDependencies()
+    addKluentDependencies()
 
     androidTestImplementation(Library.JUNIT)
-    androidTestImplementation(Library.ESPRESSO)
     androidTestImplementation(Library.ANNOTATION)
     androidTestImplementation(Library.NAVIGATION_TESTING)
-    androidTestImplementation(Library.FRAGMENT_TESTING)
-
-    //TODO: Move to Libraries
-    androidTestImplementation("androidx.test:rules:1.4.0-alpha04")
-    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0-alpha04")
+    androidTestImplementation(Library.TEST_RULES)
+    addEspressoDependencies()
 }

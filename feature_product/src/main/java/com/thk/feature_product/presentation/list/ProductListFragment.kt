@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.thk.feature_product.R
 import com.thk.feature_product.databinding.FragmentProductListBinding
 import com.thk.feature_product.presentation.list.recyclerview.CategoryRecyclerViewAdapter
+import com.thk.feature_product.test.EspressoIdlingResource
 import com.thk.menu.base.delegate.viewBinding
 import com.thk.menu.base.presentation.extension.observe
 import com.thk.menu.base.presentation.extension.visible
@@ -27,6 +28,8 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
 
     private val stateObserver = Observer<ProductListViewModel.ViewState> {
         categoryAdapter.categories = it.categories
+        EspressoIdlingResource.decrement()
+
         binding.progressBar.visible = it.isLoading
         binding.errorAnimation.visible = it.isError
     }
@@ -41,6 +44,7 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
 
         if (viewModel.stateLiveData.value?.categories == null) {
             binding.progressBar.visible()
+            EspressoIdlingResource.increment()
             viewModel.loadData()
         }
     }
@@ -59,7 +63,7 @@ class ProductListFragment : InjectionFragment(R.layout.fragment_product_list) {
 
     private fun setupList() {
         val context = requireContext()
-        binding.recyclerView.apply {
+        binding.recyclerViewCategory.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = categoryAdapter

@@ -2,6 +2,7 @@ package com.thk.feature_product.presentation
 
 import androidx.navigation.fragment.FragmentNavigator
 import com.thk.feature_product.data.DataFixtures
+import com.thk.feature_product.data.network.model.toDomainModel
 import com.thk.feature_product.domain.extensions.formatToDisplay
 import com.thk.feature_product.domain.model.Category
 import com.thk.feature_product.domain.model.Product
@@ -71,7 +72,7 @@ class ProductListViewModelTest {
     @Test
     fun `navigate to album details`() {
         // given
-        val product = DataFixtures.getProduct()
+        val product = DataFixtures.getProductDataModel().toDomainModel()
 
         val navDirections = ProductListFragmentDirections.actionProductListToProductDetail(
             product.name,

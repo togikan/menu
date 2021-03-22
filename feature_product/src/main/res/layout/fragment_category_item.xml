@@ -12,14 +12,14 @@
         android:paddingTop="@dimen/space_medium"
         android:paddingStart="@dimen/space_small"
         android:textAppearance="@style/Headline"
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/name" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewProduct"
         android:layout_width="match_parent"
         android:nestedScrollingEnabled="false"
         android:layout_height="wrap_content"
