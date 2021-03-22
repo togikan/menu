@@ -3,7 +3,7 @@ import kotlin.reflect.full.memberProperties
 object ModuleDependency {
     // All consts are accessed via reflection
     const val APP = ":app"
-    const val FEATURE_ALBUM = ":feature_product"
+    const val FEATURE_PRODUCT = ":feature_product"
     const val LIBRARY_TEST_EXTENSION = ":library_test_extensions"
 
     /*

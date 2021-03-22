@@ -17,6 +17,7 @@ object Config {
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
         const val junit5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.JUNIT5}"
         const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Version.SAFE_ARGS}"
+        const val googleServices = "com.google.gms:google-services:${Version.GOOGLE_SERVICES}"
     }
 
     object Plugins {
@@ -27,6 +28,7 @@ object Config {
         const val dynamicFeature = "com.android.dynamic-feature"
         const val kotlinKapt = "kotlin-kapt"
         const val safeArgs = "androidx.navigation.safeargs.kotlin"
+        const val googleServices = "com.google.gms.google-services"
     }
 }
 

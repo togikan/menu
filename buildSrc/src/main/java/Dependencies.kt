@@ -73,6 +73,7 @@ object Library {
     const val MOCKK = "io.mockk:mockk:${Version.MOCKK}"
     const val ARCH = "androidx.arch.core:core-testing:${Version.ARCH}"
     const val TEST_RULES = "androidx.test:rules:${Version.TEST_RULES}"
+    const val FIREBASE_BOM = "com.google.firebase:firebase-bom:${Version.FIREBASE_BOM}"
 
     fun DependencyHandler.addKotlinDependencies() {
         add(CONFIG_API, KOTLIN_STD)
@@ -167,4 +168,6 @@ object Version {
     const val ANNOTATION = "1.1.0"
     const val ARCH = "2.1.0"
     const val TEST_RULES = "1.3.0"
+    const val GOOGLE_SERVICES = "4.3.5"
+    const val FIREBASE_BOM = "26.7.0"
 }

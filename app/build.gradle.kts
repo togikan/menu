@@ -10,6 +10,7 @@ plugins {
     id(Config.Plugins.app)
     id(Config.Plugins.kotlinAndroid)
     id(Config.Plugins.junit5)
+    id(Config.Plugins.googleServices)
 }
 
 android {
@@ -26,9 +27,9 @@ android {
         testInstrumentationRunner = Config.testRunner
 
         buildConfigField(
-                "String",
-                "API_BASE_URL",
-                "\"http://mobcategories.s3-website-eu-west-1.amazonaws.com\""
+            "String",
+            "API_BASE_URL",
+            "\"http://mobcategories.s3-website-eu-west-1.amazonaws.com\""
         )
 
         buildConfigField("FEATURE_MODULE_NAMES", getFeatureNames())
@@ -70,6 +71,7 @@ dependencies {
     api(Library.KTX)
     api(Library.COIL)
 
+    implementation(platform(Library.FIREBASE_BOM))
     implementation(Library.APP_COMPAT)
     implementation(Library.MATERIAL)
     implementation(Library.CONSTRAINT_LAYOUT)
@@ -83,8 +85,8 @@ dependencies {
 Return names of the features
  */
 fun getFeatureNames() = ModuleDependency.getFeatureModules()
-        .map { it.replace(":feature_", "") }
-        .toSet()
+    .map { it.replace(":feature_", "") }
+    .toSet()
 
 fun String.toSnakeCase() = this.split(Regex("(?=[A-Z])")).joinToString("_") { it.toLowerCase() }
 
@@ -93,6 +95,7 @@ Adds a new field to the generated BuildConfig class
  */
 fun DefaultConfig.buildConfigField(name: String, value: Set<String>) {
     // Create String that holds Java String Array code
-    val strValue = value.joinToString(prefix = "{", separator = ",", postfix = "}", transform = { "\"$it\"" })
+    val strValue =
+        value.joinToString(prefix = "{", separator = ",", postfix = "}", transform = { "\"$it\"" })
     buildConfigField("String[]", name, strValue)
 }
