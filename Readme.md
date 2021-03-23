@@ -56,19 +56,12 @@ Clean Architecture (feature module level)
 
 [Espresso](https://developer.android.com/training/testing/espresso)
 
-[Firebase Test Lab](https://firebase.google.com/docs/test-lab/android/get-started)
+[Firebase Test Lab](https://firebase.google.com/docs/test-lab/android/get-started) Rather than disabling animations from 'Developer Options' while UI testing on a device or an emulator, this test lab can be used.
 
 ## UI
 [Used color palette depending on this article.](https://awgsalesservices.com/2016/04/21/color-psychology-in-food-marketing/#:~:text=Yellow%20and%20orange%20are%20colors,orange%2C%20they%20become%20passionately%20hungry.)
 
 [Used material color tool](https://material.io/resources/color/)
-
-## TODOs
-~~Use kotlin DSL for improved dependency management and get module names dynamically~~
-
-~~Improve fade animation~~
-
-**EDIT: March 16th, 2021**: TODOs completed after submission on [enhancement branch](https://github.com/togikan/menu/tree/enhancement).
 
 ## Quality checks
 

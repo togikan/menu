@@ -52,6 +52,7 @@ class ProductListFragmentTest {
         onView(withId(com.thk.menu.R.id.navHostFragment)).check(matches(isDisplayed()))
     }
 
+    // TODO: Use view ids for matching. Used values on purpose to demonstrate resource idling.
     @Test
     fun testIsProductListRendered() {
         onView(allOf(
@@ -64,6 +65,7 @@ class ProductListFragmentTest {
             .check(matches(hasDescendant(withText("Bread"))))
     }
 
+    // TODO: Use view ids for matching. Used values on purpose to demonstrate resource idling.
     @Test
     fun testIsNavigationToDetailWithSalePrice() {
         val recyclerView = onView(
