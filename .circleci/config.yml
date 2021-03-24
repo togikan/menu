@@ -10,4 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          command: ./gradlew assemble
+          command: ./gradlew clean
+      - run:
+          command: ./gradlew assembleDebug
