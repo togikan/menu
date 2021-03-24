@@ -1,35 +1,35 @@
 object Config {
-    const val compileSdk = 30
-    const val minSdk = 23
-    const val targetSdk = 30
-    const val buildTools = "30.0.3"
-    const val versionCode = 1
-    const val versionName = "1.0.0"
-    const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
+    const val COMPILE_SDK = 30
+    const val MIN_SDK = 23
+    const val TARGET_SDK = 30
+    const val BUILD_TOOLS = "30.0.3"
+    const val VERSION_CODE = 1
+    const val VERSION_NAME = "1.0.0"
+    const val TEST_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
     object ApplicationId {
-        const val appId = "com.thk.menu"
-        const val featureProduct = "com.thk.feature_product"
+        const val APP_ID = "com.thk.menu"
     }
 
     object Dependencies {
-        const val gradle = "com.android.tools.build:gradle:${Version.GRADLE}"
-        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
-        const val junit5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.JUNIT5}"
-        const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Version.SAFE_ARGS}"
-        const val googleServices = "com.google.gms:google-services:${Version.GOOGLE_SERVICES}"
+        const val GRADLE = "com.android.tools.build:gradle:${Version.GRADLE}"
+        const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
+        const val JUNIT5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.JUNIT5}"
+        const val SAFE_ARGS = "androidx.navigation:navigation-safe-args-gradle-plugin:${Version.SAFE_ARGS}"
+        const val GOOGLE_SERVICES = "com.google.gms:google-services:${Version.GOOGLE_SERVICES}"
+        const val KOTLINTER = "org.jmailen.gradle:kotlinter-gradle:${Version.KOTLINTER}"
     }
 
     object Plugins {
-        const val app = "com.android.application"
-        const val lib = "com.android.library"
-        const val kotlinAndroid = "kotlin-android"
-        const val junit5 = "de.mannodermaus.android-junit5"
-        const val dynamicFeature = "com.android.dynamic-feature"
-        const val kotlinKapt = "kotlin-kapt"
-        const val safeArgs = "androidx.navigation.safeargs.kotlin"
-        const val googleServices = "com.google.gms.google-services"
-        const val kotlinter = "org.jmailen.kotlinter"
+        const val APP = "com.android.application"
+        const val LIB = "com.android.library"
+        const val KOTLIN_ANDROID = "kotlin-android"
+        const val JUNIT5 = "de.mannodermaus.android-junit5"
+        const val DYNAMIC_FEATURE = "com.android.dynamic-feature"
+        const val KOTLIN_KAPT = "kotlin-kapt"
+        const val SAFE_ARGS = "androidx.navigation.safeargs.kotlin"
+        const val GOOGLE_SERVICES = "com.google.gms.google-services"
+        const val KOTLINTER = "org.jmailen.kotlinter"
     }
 }
 

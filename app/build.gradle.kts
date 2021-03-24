@@ -7,25 +7,25 @@ import Library.addRetrofitDependencies
 import com.android.build.gradle.internal.dsl.DefaultConfig
 
 plugins {
-    id(Config.Plugins.app)
-    id(Config.Plugins.kotlinAndroid)
-    id(Config.Plugins.junit5)
-    id(Config.Plugins.googleServices)
-    id(Config.Plugins.kotlinter)
+    id(Config.Plugins.APP)
+    id(Config.Plugins.KOTLIN_ANDROID)
+    id(Config.Plugins.JUNIT5)
+    id(Config.Plugins.GOOGLE_SERVICES)
+    id(Config.Plugins.KOTLINTER)
 }
 
 android {
-    compileSdkVersion(Config.compileSdk)
-    buildToolsVersion(Config.buildTools)
+    compileSdkVersion(Config.COMPILE_SDK)
+    buildToolsVersion(Config.BUILD_TOOLS)
 
     defaultConfig {
-        applicationId = Config.ApplicationId.appId
-        minSdkVersion(Config.minSdk)
-        targetSdkVersion(Config.targetSdk)
-        versionCode = Config.versionCode
-        versionName = Config.versionName
+        applicationId = Config.ApplicationId.APP_ID
+        minSdkVersion(Config.MIN_SDK)
+        targetSdkVersion(Config.TARGET_SDK)
+        versionCode = Config.VERSION_CODE
+        versionName = Config.VERSION_NAME
 
-        testInstrumentationRunner = Config.testRunner
+        testInstrumentationRunner = Config.TEST_RUNNER
 
         buildConfigField(
             "String",

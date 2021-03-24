@@ -9,12 +9,12 @@ buildscript {
         }
     }
     dependencies {
-        classpath (Config.Dependencies.gradle)
-        classpath (Config.Dependencies.kotlin)
-        classpath (Config.Dependencies.junit5)
-        classpath (Config.Dependencies.safeArgs)
-        classpath (Config.Dependencies.googleServices)
-        classpath("org.jmailen.gradle:kotlinter-gradle:3.4.0")
+        classpath (Config.Dependencies.GRADLE)
+        classpath (Config.Dependencies.KOTLIN)
+        classpath (Config.Dependencies.JUNIT5)
+        classpath (Config.Dependencies.SAFE_ARGS)
+        classpath (Config.Dependencies.GOOGLE_SERVICES)
+        classpath (Config.Dependencies.KOTLINTER)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

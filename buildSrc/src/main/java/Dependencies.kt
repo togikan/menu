@@ -139,35 +139,3 @@ object Library {
         add(CONFIG_IMPLEMENTATION, ESPRESSO_IDLING)
     }
 }
-
-object Version {
-    const val KOTLIN = "1.4.31"
-    const val GRADLE = "4.0.1"
-    const val JUNIT5 = "1.7.1.1"
-    const val SAFE_ARGS = "2.3.3"
-    const val KTX = "1.3.2"
-    const val APP_COMPAT = "1.2.0"
-    const val MATERIAL = "1.3.0"
-    const val CONSTRAINT_LAYOUT = "2.0.4"
-    const val PLAY_CORE = "1.10.0"
-    const val LIFECYCLE = "2.3.0"
-    const val KODEIN = "6.5.5"
-    const val RETROFIT = "2.9.0"
-    const val OKHTTP = "4.9.1"
-    const val NAVIGATION = "2.3.3"
-    const val COIL = "1.1.1"
-    const val JUNIT = "1.1.2"
-    const val ESPRESSO = "3.3.0"
-    const val RECYCLERVIEW = "1.1.0"
-    const val LOTTIE = "3.6.1"
-    const val COROUTINE_TEST = "1.4.3"
-    const val ROOM = "2.2.6"
-    const val MOCKK = "1.11.0"
-    const val JUPITER = "5.7.1"
-    const val KLUENT = "1.65"
-    const val ANNOTATION = "1.1.0"
-    const val ARCH = "2.1.0"
-    const val TEST_RULES = "1.3.0"
-    const val GOOGLE_SERVICES = "4.3.5"
-    const val FIREBASE_BOM = "26.7.0"
-}

@@ -2,22 +2,22 @@ import Library.addJupiterTestDependencies
 import Library.addKotlinDependencies
 
 plugins {
-    id(Config.Plugins.lib)
-    id(Config.Plugins.kotlinAndroid)
-    id(Config.Plugins.junit5)
-    id(Config.Plugins.kotlinter)
+    id(Config.Plugins.LIB)
+    id(Config.Plugins.KOTLIN_ANDROID)
+    id(Config.Plugins.JUNIT5)
+    id(Config.Plugins.KOTLINTER)
 }
 
 android {
-    compileSdkVersion(Config.compileSdk)
+    compileSdkVersion(Config.COMPILE_SDK)
 
     defaultConfig {
-        minSdkVersion(Config.minSdk)
-        targetSdkVersion(Config.targetSdk)
-        versionCode = Config.versionCode
-        versionName = Config.versionName
+        minSdkVersion(Config.MIN_SDK)
+        targetSdkVersion(Config.TARGET_SDK)
+        versionCode = Config.VERSION_CODE
+        versionName = Config.VERSION_NAME
 
-        testInstrumentationRunner = Config.testRunner
+        testInstrumentationRunner = Config.TEST_RUNNER
     }
 
     buildTypes {

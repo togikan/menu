@@ -4,24 +4,24 @@ import Library.addKluentDependencies
 import Library.addRoomDependencies
 
 plugins {
-    id(Config.Plugins.dynamicFeature)
-    id(Config.Plugins.kotlinAndroid)
-    id(Config.Plugins.kotlinKapt)
-    id(Config.Plugins.junit5)
-    id(Config.Plugins.safeArgs)
-    id(Config.Plugins.kotlinter)
+    id(Config.Plugins.DYNAMIC_FEATURE)
+    id(Config.Plugins.KOTLIN_ANDROID)
+    id(Config.Plugins.KOTLIN_KAPT)
+    id(Config.Plugins.JUNIT5)
+    id(Config.Plugins.SAFE_ARGS)
+    id(Config.Plugins.KOTLINTER)
 }
 
 android {
-    compileSdkVersion(Config.compileSdk)
+    compileSdkVersion(Config.COMPILE_SDK)
 
     defaultConfig {
-        minSdkVersion(Config.minSdk)
-        targetSdkVersion(Config.targetSdk)
-        versionCode = Config.versionCode
-        versionName = Config.versionName
+        minSdkVersion(Config.MIN_SDK)
+        targetSdkVersion(Config.TARGET_SDK)
+        versionCode = Config.VERSION_CODE
+        versionName = Config.VERSION_NAME
 
-        testInstrumentationRunner = Config.testRunner
+        testInstrumentationRunner = Config.TEST_RUNNER
     }
 
     buildFeatures.viewBinding = true
