@@ -12,4 +12,6 @@ jobs:
       - run:
           command: ./gradlew clean
       - run:
+          command: ./gradlew lintKotlin
+      - run:
           command: ./gradlew assembleDebug
