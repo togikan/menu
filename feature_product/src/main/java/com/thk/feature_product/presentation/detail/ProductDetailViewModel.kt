@@ -1,14 +1,12 @@
 package com.thk.feature_product.presentation.detail
 
-import androidx.lifecycle.viewModelScope
 import com.thk.feature_product.domain.model.Product
+import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action
+import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action.ProductLoadingFailure
+import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action.ProductLoadingSuccess
 import com.thk.menu.base.presentation.viewmodel.BaseAction
 import com.thk.menu.base.presentation.viewmodel.BaseViewModel
 import com.thk.menu.base.presentation.viewmodel.BaseViewState
-import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action
-import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action.ProductLoadingSuccess
-import com.thk.feature_product.presentation.detail.ProductDetailViewModel.Action.ProductLoadingFailure
-import kotlinx.coroutines.launch
 
 internal class ProductDetailViewModel() :
     BaseViewModel<ProductDetailViewModel.ViewState, Action>(ViewState()) {

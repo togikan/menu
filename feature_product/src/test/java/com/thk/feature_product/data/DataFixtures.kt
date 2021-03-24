@@ -3,8 +3,6 @@ package com.thk.feature_product.data
 import com.thk.feature_product.data.network.model.CategoryJson
 import com.thk.feature_product.data.network.model.ProductJson
 import com.thk.feature_product.data.network.model.SalePriceJson
-import com.thk.feature_product.domain.model.Product
-import com.thk.feature_product.domain.model.SalePrice
 
 object DataFixtures {
 

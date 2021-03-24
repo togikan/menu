@@ -11,6 +11,7 @@ plugins {
     id(Config.Plugins.kotlinAndroid)
     id(Config.Plugins.junit5)
     id(Config.Plugins.googleServices)
+    id(Config.Plugins.kotlinter)
 }
 
 android {

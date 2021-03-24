@@ -9,6 +9,7 @@ plugins {
     id(Config.Plugins.kotlinKapt)
     id(Config.Plugins.junit5)
     id(Config.Plugins.safeArgs)
+    id(Config.Plugins.kotlinter)
 }
 
 android {

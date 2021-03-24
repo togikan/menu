@@ -29,6 +29,7 @@ object Config {
         const val kotlinKapt = "kotlin-kapt"
         const val safeArgs = "androidx.navigation.safeargs.kotlin"
         const val googleServices = "com.google.gms.google-services"
+        const val kotlinter = "org.jmailen.kotlinter"
     }
 }
 

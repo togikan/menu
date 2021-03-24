@@ -5,8 +5,6 @@ import com.thk.feature_product.data.DataFixtures
 import com.thk.feature_product.data.network.model.toDomainModel
 import com.thk.feature_product.domain.extensions.formatToDisplay
 import com.thk.feature_product.domain.model.Category
-import com.thk.feature_product.domain.model.Product
-import com.thk.feature_product.domain.model.SalePrice
 import com.thk.feature_product.domain.usecase.GetCategoryListUseCase
 import com.thk.feature_product.presentation.list.ProductListFragmentDirections
 import com.thk.feature_product.presentation.list.ProductListViewModel
@@ -18,12 +16,8 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
-import kotlinx.coroutines.*
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.amshove.kluent.shouldBeEqualTo
-import org.junit.After
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension

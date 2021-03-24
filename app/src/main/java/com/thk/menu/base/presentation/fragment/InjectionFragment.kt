@@ -10,7 +10,8 @@ import org.kodein.di.KodeinTrigger
 import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.kcontext
 
-abstract class InjectionFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId),
+abstract class InjectionFragment(@LayoutRes contentLayoutId: Int) :
+    Fragment(contentLayoutId),
     KodeinAware {
 
     final override val kodeinContext = kcontext<Fragment>(this)

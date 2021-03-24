@@ -32,9 +32,9 @@ internal class ProductEntityTypeConverter {
 
     @TypeConverter
     fun stringToList(data: String?) =
-            data?.let { adapter.fromJson(it) } ?: listOf()
+        data?.let { adapter.fromJson(it) } ?: listOf()
 
     @TypeConverter
     fun listToString(someObjects: List<ProductEntity>): String =
-            adapter.toJson(someObjects)
+        adapter.toJson(someObjects)
 }

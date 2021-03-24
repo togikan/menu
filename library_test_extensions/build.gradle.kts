@@ -5,6 +5,7 @@ plugins {
     id(Config.Plugins.lib)
     id(Config.Plugins.kotlinAndroid)
     id(Config.Plugins.junit5)
+    id(Config.Plugins.kotlinter)
 }
 
 android {

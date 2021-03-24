@@ -1,9 +1,9 @@
 package com.thk.feature_product.presentation.list.recyclerview
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.thk.feature_product.R
 import com.thk.feature_product.databinding.FragmentCategoryItemBinding
 import com.thk.feature_product.domain.model.Category

@@ -13,9 +13,8 @@ import com.thk.feature_product.databinding.FragmentProductDetailBinding
 import com.thk.menu.base.delegate.viewBinding
 import com.thk.menu.base.presentation.extension.loadFromUrl
 import com.thk.menu.base.presentation.fragment.InjectionFragment
-import java.util.*
+import java.util.Timer
 import kotlin.concurrent.schedule
-
 
 class ProductDetailFragment : InjectionFragment(R.layout.fragment_product_detail) {
 

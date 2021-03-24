@@ -3,8 +3,8 @@ package com.thk.feature_product.presentation
 import androidx.fragment.app.Fragment
 import com.thk.feature_product.MODULE_NAME
 import com.thk.feature_product.presentation.detail.ProductDetailViewModel
-import com.thk.feature_product.presentation.list.recyclerview.CategoryRecyclerViewAdapter
 import com.thk.feature_product.presentation.list.ProductListViewModel
+import com.thk.feature_product.presentation.list.recyclerview.CategoryRecyclerViewAdapter
 import com.thk.menu.base.di.KotlinViewModelProvider
 import org.kodein.di.Kodein
 import org.kodein.di.android.x.AndroidLifecycleScope

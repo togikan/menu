@@ -1,8 +1,10 @@
 package com.thk.feature_product.data.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.thk.feature_product.data.db.model.CategoryEntity
-import com.thk.feature_product.data.db.model.ProductEntity
 
 @Dao
 internal interface ProductDao {
@@ -13,4 +15,3 @@ internal interface ProductDao {
     @Query("SELECT * FROM categories")
     suspend fun getAll(): List<CategoryEntity>
 }
-

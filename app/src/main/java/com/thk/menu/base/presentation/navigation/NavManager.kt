@@ -4,10 +4,9 @@ import androidx.navigation.NavDirections
 import androidx.navigation.Navigator
 
 class NavManager {
-    private var navEventListener: ((
-        navDirections: NavDirections,
-        navigatorExtras: Navigator.Extras
-    ) -> Unit)? = null
+    private var navEventListener: (
+        (navDirections: NavDirections, navigatorExtras: Navigator.Extras) -> Unit
+    )? = null
 
     fun navigate(
         navDirections: NavDirections,
