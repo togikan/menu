@@ -16,4 +16,6 @@ jobs:
       - run:
           command: ./gradlew detekt
       - run:
+          command: ./gradlew spotlessCheck
+      - run:
           command: ./gradlew assembleDebug
