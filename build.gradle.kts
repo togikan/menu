@@ -21,7 +21,8 @@ buildscript {
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt").version("1.16.0")
+    id("io.gitlab.arturbosch.detekt") version("1.16.0")
+    id("com.diffplug.spotless") version "5.7.0"
 }
 
 detekt {
@@ -51,8 +52,38 @@ allprojects {
     }
 }
 
-tasks {
-  val clean by registering(Delete::class) {
-      delete(buildDir)
-  }
+subprojects {
+
+    project.pluginManager.apply("com.diffplug.spotless")
+
+    spotless {
+        java {
+            target("**/*.java")
+            targetExclude("**/build/**/*.java")
+            removeUnusedImports()
+            trimTrailingWhitespace()
+            indentWithSpaces()
+            googleJavaFormat()
+        }
+
+        kotlin {
+            target("**/*.kt")
+            targetExclude("**/build/**/*.kt")
+            ktlint("0.40.0")
+            trimTrailingWhitespace()
+            indentWithSpaces()
+            endWithNewline()
+        }
+
+        kotlinGradle {
+            target("**/*.gradle.kts")
+            ktlint("0.40.0")
+        }
+
+        format("misc") {
+            target("**/.gitignore", "**/*.gradle", "**/*.md", "**/*.sh", "**/*.yml")
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
+    }
 }
