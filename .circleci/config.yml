@@ -12,7 +12,7 @@ jobs:
       - run:
           command: ./gradlew clean
       - run:
-          command: ./gradlew lintKotlin
+          command: ./gradlew lint
       - run:
           command: ./gradlew detekt
       - run:
