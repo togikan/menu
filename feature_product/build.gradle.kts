@@ -75,4 +75,6 @@ dependencies {
     androidTestImplementation(Library.NAVIGATION_TESTING)
     androidTestImplementation(Library.TEST_RULES)
     addEspressoDependencies()
+
+    testRuntimeOnly(files("$projectDir/../app/build/intermediates/app_classes/debug/classes.jar"))
 }

@@ -86,6 +86,8 @@ dependencies {
 
     androidTestImplementation(Library.JUNIT)
     androidTestImplementation(Library.ESPRESSO)
+
+    testRuntimeOnly(files("$projectDir/build/intermediates/app_classes/debug/classes.jar"))
 }
 
 /*
