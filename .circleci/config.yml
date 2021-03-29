@@ -60,6 +60,15 @@ jobs:
       - restore-gradle-cache
       - run: ./gradlew detekt
 
+  spotless:
+    <<: *container_config
+    steps:
+      - checkout
+      - restore-gradle-cache
+      # pure "lint" gradle task should be avoided because it is parent task for lintDebug and lintRelease (it runs lint
+      # multiple times for each build variant). We want to run "lintDebug" task, because it's faster.
+      - run: ./gradlew spotlessCheck
+
   lint:
     <<: *container_config
     steps:
@@ -97,6 +106,9 @@ workflows:
       - lint:
           requires:
             - update_dependency_cache
+      - spotless:
+          requires:
+            - update_dependency_cache
       - detekt:
           requires:
             - update_dependency_cache
@@ -109,6 +121,7 @@ workflows:
       - build_app:
           requires:
             - lint
+            - spotless
             - detekt
             - ktlint
             - unit_test
