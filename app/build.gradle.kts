@@ -49,6 +49,12 @@ android {
         }
     }
 
+    lintOptions {
+        isCheckDependencies = true
+        isIgnoreTestSources = true
+        htmlOutput = File("${project.rootDir}/build/reports/lint-results-all.html")
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

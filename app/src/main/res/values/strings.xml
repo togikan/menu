@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
     <string name="app_name">menu</string>
     <string name="title_feature_product">Product</string>
     <string name="no_connection">Hmmm… I can\'t reach my server. Can you check your internet connection?</string>
