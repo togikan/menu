@@ -2,6 +2,7 @@ package com.thk.feature_product.data
 
 import com.thk.feature_product.data.db.ProductDao
 import com.thk.feature_product.data.db.model.toDomainModel
+import com.thk.feature_product.data.network.model.CategoryJson
 import com.thk.feature_product.data.network.model.toDomainModel
 import com.thk.feature_product.data.network.model.toEntity
 import com.thk.feature_product.data.network.service.ProductRetrofitService
@@ -15,21 +16,31 @@ internal class ProductRepositoryImpl(
 ) : ProductRepository {
 
     override suspend fun getCategoryList(): List<Category> {
-        try {
+        return try {
             val list = productRetrofitService.getCategoryListAsync()
-
-            val entityList = list?.mapNotNull {
-                it.toEntity()
-            } ?: listOf()
-            productDao.insertCategory(entityList)
-
-            return list?.mapNotNull {
-                it.toDomainModel()
-            } ?: listOf()
+            insertListToDatabase(list)
+            getListFromResponse(list)
         } catch (e: UnknownHostException) {
-            return productDao.getAll().mapNotNull {
-                it.toDomainModel()
-            }
+            getListFromDatabase()
+        }
+    }
+
+    private suspend fun insertListToDatabase(list: List<CategoryJson>?) {
+        val entityList = list?.mapNotNull {
+            it.toEntity()
+        } ?: listOf()
+        productDao.insertCategory(entityList)
+    }
+
+    private fun getListFromResponse(list: List<CategoryJson>?): List<Category> {
+        return list?.mapNotNull {
+            it.toDomainModel()
+        } ?: listOf()
+    }
+
+    private suspend fun getListFromDatabase(): List<Category> {
+        return productDao.getAll().mapNotNull {
+            it.toDomainModel()
         }
     }
 }
